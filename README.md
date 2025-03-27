@@ -1,6 +1,11 @@
 # Unbound DNS Grafana Dashboard
 
-This repository contains a Grafana dashboard for monitoring Unbound DNS servers, complete with all necessary assets.
+Grafana dashboard for monitoring Unbound DNS servers, complete with all necessary assets.
+
+
+### Screenhot
+![Dashboard-Unbound-DNS](https://github.com/user-attachments/assets/71d4c57b-0fcf-4c36-9eb8-8863c675652b)
+
 
 ## Installation
 
