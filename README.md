@@ -12,7 +12,7 @@ Grafana dashboard for monitoring Unbound DNS servers, complete with all necessar
 ### Prerequisites
 
 - Grafana (v11.0.0 or higher)
-- A working Prometheus data source for Proxmox
+- Any DB Data Source (InfluxDB) to query Timestamps
 - OPNsense API Key configured in Infinity Datasource
 - (optional) n8n for formatting OPNsense API Responses
 
