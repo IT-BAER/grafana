@@ -12,7 +12,9 @@ Grafana dashboard for monitoring Unbound DNS servers, complete with all necessar
 ### Prerequisites
 
 - Grafana (v11.0.0 or higher)
-- Any DB Data Source (InfluxDB) to query Timestamps
+- Plugins:
+  - Infinity Data Source
+  - Business Variable Plugin
 - OPNsense API Key configured in Infinity Datasource
 - (optional) n8n for formatting OPNsense API Responses
 
