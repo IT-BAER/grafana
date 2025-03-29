@@ -1,8 +1,8 @@
 {
   "__inputs": [
     {
-      "name": "DS_OPNSENSE_UNBOUND DNS",
-      "label": "OPNsense Unbound DNS",
+      "name": "DS_N8N",
+      "label": "n8n",
       "description": "",
       "type": "datasource",
       "pluginId": "yesoreyeram-infinity-datasource",
@@ -15,14 +15,6 @@
       "type": "datasource",
       "pluginId": "influxdb",
       "pluginName": "InfluxDB"
-    },
-    {
-      "name": "DS_N8N",
-      "label": "n8n",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "yesoreyeram-infinity-datasource",
-      "pluginName": "Infinity"
     }
   ],
   "__elements": {},
@@ -65,9 +57,9 @@
     },
     {
       "type": "panel",
-      "id": "williamvenner-timepickerbuttons-panel",
-      "name": "Timepicker Buttons Panel",
-      "version": "4.1.1"
+      "id": "volkovlabs-variable-panel",
+      "name": "Business Variable",
+      "version": "3.8.0"
     },
     {
       "type": "datasource",
@@ -92,17 +84,16 @@
       }
     ]
   },
-  "editable": false,
+  "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
   "id": null,
   "links": [],
-  "liveNow": true,
   "panels": [
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_OPNSENSE_UNBOUND DNS}"
+        "uid": "${DS_N8N}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1063,17 +1054,17 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_OPNSENSE_UNBOUND DNS}"
+            "uid": "${DS_N8N}"
           },
           "filters": [],
           "format": "table",
           "global_query_id": "",
           "parser": "backend",
           "refId": "A",
-          "root_selector": "$[*]{\n  \"Total\": total,\n  \"Resolved #\": resolved.total,\n  \"Resolved %\": resolved.pcnt,\n  \"Blocked #\": blocked.total,\n  \"Blocked %\": blocked.pcnt,\n  \"Blocklist Size\": blocklist_size,\n  \"Start Time\": start_time\n}",
+          "root_selector": "",
           "source": "url",
           "type": "json",
-          "url": "/overview/totals/0",
+          "url": "https://your_api_endpoint",
           "url_options": {
             "data": "",
             "headers": [],
@@ -1122,7 +1113,7 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<div class=\"hr-text-container\">\n  <div class=\"hr-left\"></div>\n  <div class=\"text\">Overall Queries</div>\n  <div class=\"hr-right\"></div>\n</div>\n\n<style>\n\n.hr-text-container {\n  display: flex;\n  align-items: center;\n  width: 100%;\n  height: auto;\n  position: absolute;\n  margin:0;\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.hr-left {\n  flex-grow: 1;\n  height: 2px;\n  background: linear-gradient(to right, transparent, cyan);\n}\n\n.text {\n  color: #ddd;\n  padding: 0 10px;\n  font-weight: 500;\n  font-size: 18px;\n}\n\n.hr-right {\n  flex-grow: 1;\n  height: 2px;\n  background: linear-gradient(to left, transparent, cyan);\n}\n\n#pageContent {\n    background-image: url(public/img/bg/dns-bg.jpg);\n    background-attachment: fixed;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n\n[class$=\"panel-container\"]:not([class$=\"panel-container-panel-transparent-container\"]) {\n    border-radius: 10px !important;\n    background-color: rgba(10, 10, 10, 0.9);\n    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);\n}\n\n[data-viz-panel-key=\"panel-6\"] .gf-form > * > [class$=\"horizontal-group\"] {\n  justify-content: center!important;\n}\n\n[data-viz-panel-key=\"panel-8\"] [class$=\"panel-content\"], [data-viz-panel-key=\"panel-6\"] [class$=\"panel-content\"] {\n  padding: 0!important;\n  }\n\ndiv#\\:r10\\: {\n  padding:0 !important;\n  margin:0 !important;\n}\n\n.gf-form > *:has(> [class$=\"horizontal-group\"]) {\n    height: auto;\n    overflow: visible;\n}\n\n\n[class*=\"panel-container\"]:hover {\n  border: 1px solid rgba(204, 204, 220, 0);\n}\n\n.gf-form > * > [class$=\"horizontal-group\"] > * > button {\n  border-radius: 10px;\n  background: rgba(30, 30, 30, 0.5);\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);\n}\n\n.gf-form > * > [class$=\"horizontal-group\"] > * > button:hover {\n  background: rgba(50, 50, 50, 0.5);\n}\n\n\n</style>\n\n\n\n",
+        "content": "<div class=\"hr-text-container\">\n  <div class=\"hr-left\"></div>\n  <div class=\"text\">Overall Queries</div>\n  <div class=\"hr-right\"></div>\n</div>\n\n<style>\n\n.hr-text-container {\n  display: flex;\n  align-items: center;\n  width: 100%;\n  height: auto;\n  position: absolute;\n  margin:0;\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.hr-left {\n  flex-grow: 1;\n  height: 2px;\n  background: linear-gradient(to right, transparent, cyan);\n}\n\n.text {\n  color: #ddd;\n  padding: 0 10px;\n  font-weight: 500;\n  font-size: 18px;\n}\n\n.hr-right {\n  flex-grow: 1;\n  height: 2px;\n  background: linear-gradient(to left, transparent, cyan);\n}\n\n#pageContent {\n    background-image: url(public/img/bg/dns-bg.jpg);\n    background-attachment: fixed;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n\n[class$=\"panel-container\"]:not([class$=\"panel-container-panel-transparent-container\"]) {\n    border-radius: 10px !important;\n    background-color: rgba(10, 10, 10, 0.9);\n    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);\n}\n\n[data-viz-panel-key=\"panel-6\"] .gf-form > * > [class$=\"horizontal-group\"] {\n  justify-content: center!important;\n}\n\n[data-viz-panel-key=\"panel-8\"] [class$=\"panel-content\"], [data-viz-panel-key=\"panel-6\"] [class$=\"panel-content\"] {\n  padding: 0!important;\n  }\n\n\ndiv#\\:r10\\: {\n  padding:0 !important;\n  margin:0 !important;\n}\n\n/********* Range Buttons ***********/\n\n[data-viz-panel-key=\"panel-14\"] [data-testid=\"data-testid button-view\"] {\n    overflow: visible;\n}\n\n[data-viz-panel-key=\"panel-14\"] [data-testid*=\"panel content\"] {\n    justify-items: center;\n    margin-top: -7px !important;\n}\n\n[data-viz-panel-key=\"panel-14\"] [data-testid=\"data-testid button-view\"] [type=button] {\n    border-radius: 8px;\n}\n\n/************************************/\n\n.gf-form > *:has(> [class$=\"horizontal-group\"]) {\n    height: auto;\n    overflow: visible;\n}\n\n\n[class*=\"panel-container\"]:hover {\n  border: 1px solid rgba(204, 204, 220, 0);\n}\n\n.gf-form > * > [class$=\"horizontal-group\"] > * > button {\n  border-radius: 10px;\n  background: rgba(30, 30, 30, 0.5);\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);\n}\n\n.gf-form > * > [class$=\"horizontal-group\"] > * > button:hover {\n  background: rgba(50, 50, 50, 0.5);\n}\n\n\n</style>\n\n\n\n",
         "mode": "html"
       },
       "pluginVersion": "11.6.0",
@@ -1131,8 +1122,27 @@
     },
     {
       "datasource": {
-        "type": "datasource",
-        "uid": "-- Mixed --"
+        "type": "influxdb",
+        "uid": "${DS_PROXMOX}"
+      },
+      "fieldConfig": {
+        "defaults": {
+          "custom": {
+            "thresholdsStyle": {
+              "mode": "color",
+              "thresholds": []
+            }
+          },
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green"
+              }
+            ]
+          }
+        },
+        "overrides": []
       },
       "gridPos": {
         "h": 1,
@@ -1140,30 +1150,41 @@
         "x": 0,
         "y": 5
       },
-      "id": 6,
+      "id": 14,
       "options": {
-        "buttonTextOption": "button_text",
-        "displayButtonsHorizontal": true,
-        "displayStyle": "button",
-        "primaryFieldOption": "primary",
-        "primaryFieldValueOption": "1",
-        "timeFromOption": "time_from",
-        "timeToOption": "time_to"
+        "alwaysVisibleFilter": false,
+        "autoScroll": false,
+        "browserTabNamePattern": "",
+        "collapsedByDefault": false,
+        "customValue": false,
+        "displayMode": "button",
+        "emptyValue": false,
+        "favorites": {
+          "enabled": false,
+          "storage": "browser"
+        },
+        "filter": false,
+        "groupSelection": false,
+        "header": true,
+        "isUseLocalTime": false,
+        "minimizeOutputFormat": "text",
+        "padding": 0,
+        "persistent": false,
+        "saveSelectedGroup": false,
+        "saveSelectedGroupKey": "",
+        "showGroupTotal": false,
+        "showLabel": false,
+        "showName": false,
+        "showResetButton": false,
+        "showTotal": false,
+        "statusSort": false,
+        "sticky": false,
+        "tabsInOrder": true,
+        "variable": "range"
       },
-      "pluginVersion": "4.1.1",
-      "targets": [
-        {
-          "datasource": {
-            "type": "influxdb",
-            "uid": "${DS_PROXMOX}"
-          },
-          "hide": false,
-          "query": "import \"date\"\r\nimport \"array\"\r\n\r\ndata = [\r\n  {time_from: date.add(d: -1h, to: now()), button_text: \"1 Hour\", primary: 0},\r\n  {time_from: date.add(d: -12h, to: now()), button_text: \"12 Hours\", primary: 0},\r\n  {time_from: date.add(d: -24h, to: now()), button_text: \"24 Hours\", primary: 0}\r\n]\r\n\r\narray.from(rows: data)\r\n  |> yield()\r\n",
-          "refId": "B"
-        }
-      ],
+      "pluginVersion": "3.8.0",
       "transparent": true,
-      "type": "williamvenner-timepickerbuttons-panel"
+      "type": "volkovlabs-variable-panel"
     },
     {
       "gridPos": {
@@ -1221,6 +1242,7 @@
             "lineWidth": 4,
             "pointSize": 15,
             "scaleDistribution": {
+              "linearThreshold": 1,
               "type": "linear"
             },
             "showPoints": "auto",
@@ -1256,7 +1278,7 @@
             "properties": [
               {
                 "id": "unit",
-                "value": "time: DD.MM.YYYY HH:mm:00"
+                "value": "time: DD.MM.YYYY HH:mm"
               }
             ]
           },
@@ -1298,8 +1320,9 @@
         "x": 1,
         "y": 7
       },
+      "hideTimeOverride": true,
       "id": 3,
-      "interval": "30m",
+      "interval": "10m",
       "options": {
         "legend": {
           "calcs": [],
@@ -1323,7 +1346,7 @@
           "columns": [],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_OPNSENSE_UNBOUND DNS}"
+            "uid": "${DS_N8N}"
           },
           "fields": [
             {
@@ -1355,7 +1378,7 @@
           "root_selector": "$keys($) ~> $sort() ~> $map(function($k) {\n  {\n    \"timestamp\": $number($k),\n    \"time\": $fromMillis($number($k) * 1000),\n    \"total\": $lookup($, $k).total,\n    \"passed\": $lookup($, $k).passed,\n    \"blocked\": $lookup($, $k).blocked,\n    \"dropped\": $lookup($, $k).dropped,\n    \"resolved\": $lookup($, $k).resolved,\n    \"local\": $lookup($, $k).local,\n    \"cached\": $lookup($, $k).cached\n  }\n})\n",
           "source": "url",
           "type": "json",
-          "url": "/overview/Rolling/24",
+          "url": "https://your_api_endpoint.net/webhook/unbound/rolling?clients=0",
           "urlPath": "",
           "url_options": {
             "data": "",
@@ -1363,6 +1386,8 @@
           }
         }
       ],
+      "timeFrom": "$range",
+      "timeShift": "5m",
       "title": "Overall Queries",
       "transformations": [
         {
@@ -1466,7 +1491,7 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<div class=\"hr-text-container\">\n  <div class=\"hr-left\"></div>\n  <div class=\"text\">Clients Activity</div>\n  <div class=\"hr-right\"></div>\n</div>",
+        "content": "<div class=\"hr-text-container\">\n  <div class=\"hr-left\"></div>\n  <div class=\"text\">Client Activities</div>\n  <div class=\"hr-right\"></div>\n</div>",
         "mode": "html"
       },
       "pluginVersion": "11.6.0",
@@ -1478,7 +1503,7 @@
         "type": "yesoreyeram-infinity-datasource",
         "uid": "${DS_N8N}"
       },
-      "description": "Queries Count",
+      "description": "",
       "fieldConfig": {
         "defaults": {
           "color": {
@@ -1510,7 +1535,7 @@
               "fill": "dot"
             },
             "lineWidth": 0,
-            "pointSize": 7,
+            "pointSize": 8,
             "scaleDistribution": {
               "log": 2,
               "type": "log"
@@ -1560,7 +1585,9 @@
         "x": 1,
         "y": 19
       },
+      "hideTimeOverride": true,
       "id": 11,
+      "interval": "10m",
       "options": {
         "legend": {
           "calcs": [],
@@ -1583,7 +1610,7 @@
           "alias": "Random Walk",
           "columns": [],
           "computed_columns": [],
-          "data": "[\n  {\n    \"time\": \"2025-03-27 18:27:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:27:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 18\n  },\n  {\n    \"time\": \"2025-03-27 18:27:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:27:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 10\n  },\n  {\n    \"time\": \"2025-03-27 18:27:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:27:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 18:27:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:27:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:27:00\",\n    \"identifier\": \"Galaxy-Tab-A7-Lite.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:27:00\",\n    \"identifier\": \"LED-SZ.it-baer.int\",\n    \"count\": 1\n  },\n  {\n    \"time\": \"2025-03-27 18:28:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:28:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 21\n  },\n  {\n    \"time\": \"2025-03-27 18:28:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:28:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:28:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:28:00\",\n    \"identifier\": \"MR-ROBOT.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:28:00\",\n    \"identifier\": \"PI-MIR.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:28:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:28:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:28:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:29:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:29:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:29:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 7\n  },\n  {\n    \"time\": \"2025-03-27 18:29:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 18:29:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:29:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:29:00\",\n    \"identifier\": \"BM-UPS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:29:00\",\n    \"identifier\": \"BM-VLT.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:29:00\",\n    \"identifier\": \"P7P-Baer.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:29:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:30:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:30:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:30:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 12\n  },\n  {\n    \"time\": \"2025-03-27 18:30:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 9\n  },\n  {\n    \"time\": \"2025-03-27 18:30:00\",\n    \"identifier\": \"BM-DMS.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:30:00\",\n    \"identifier\": \"BM-NCL.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:30:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:30:00\",\n    \"identifier\": \"\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:30:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:30:00\",\n    \"identifier\": \"BM-PBS01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:31:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 26\n  },\n  {\n    \"time\": \"2025-03-27 18:31:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:31:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 16\n  },\n  {\n    \"time\": \"2025-03-27 18:31:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 18:31:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 18:31:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 18:31:00\",\n    \"identifier\": \"bm-nas.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:31:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:31:00\",\n    \"identifier\": \"10.10.20.95\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:31:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:32:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 36\n  },\n  {\n    \"time\": \"2025-03-27 18:32:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 29\n  },\n  {\n    \"time\": \"2025-03-27 18:32:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:32:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:32:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 12\n  },\n  {\n    \"time\": \"2025-03-27 18:32:00\",\n    \"identifier\": \"10.10.20.95\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 18:32:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 18:32:00\",\n    \"identifier\": \"\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:32:00\",\n    \"identifier\": \"bm-nas.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:32:00\",\n    \"identifier\": \"ShellyHT.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:33:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:33:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 22\n  },\n  {\n    \"time\": \"2025-03-27 18:33:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:33:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 13\n  },\n  {\n    \"time\": \"2025-03-27 18:33:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:33:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:33:00\",\n    \"identifier\": \"bm-nas.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:33:00\",\n    \"identifier\": \"10.10.10.30\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:33:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:33:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:34:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:34:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 23\n  },\n  {\n    \"time\": \"2025-03-27 18:34:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:34:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:34:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:34:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:34:00\",\n    \"identifier\": \"\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:34:00\",\n    \"identifier\": \"BM-GRAF.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:34:00\",\n    \"identifier\": \"PI-MIR.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:34:00\",\n    \"identifier\": \"10.10.20.95\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:35:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:35:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:35:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 10\n  },\n  {\n    \"time\": \"2025-03-27 18:35:00\",\n    \"identifier\": \"BM-NCL.it-baer.int\",\n    \"count\": 9\n  },\n  {\n    \"time\": \"2025-03-27 18:35:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 18:35:00\",\n    \"identifier\": \"\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 18:35:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:35:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:35:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:35:00\",\n    \"identifier\": \"LG-Soundbar.it-baer.int\",\n    \"count\": 1\n  },\n  {\n    \"time\": \"2025-03-27 18:36:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 26\n  },\n  {\n    \"time\": \"2025-03-27 18:36:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:36:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 13\n  },\n  {\n    \"time\": \"2025-03-27 18:36:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 18:36:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:36:00\",\n    \"identifier\": \"BM-GRAF.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:36:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:36:00\",\n    \"identifier\": \"\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:36:00\",\n    \"identifier\": \"BM-DMS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:36:00\",\n    \"identifier\": \"BM-MON.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:37:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 30\n  },\n  {\n    \"time\": \"2025-03-27 18:37:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 28\n  },\n  {\n    \"time\": \"2025-03-27 18:37:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:37:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 10\n  },\n  {\n    \"time\": \"2025-03-27 18:37:00\",\n    \"identifier\": \"\",\n    \"count\": 7\n  },\n  {\n    \"time\": \"2025-03-27 18:37:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:37:00\",\n    \"identifier\": \"BM-GLC.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:37:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:37:00\",\n    \"identifier\": \"10.10.20.95\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:37:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:38:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 34\n  },\n  {\n    \"time\": \"2025-03-27 18:38:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 28\n  },\n  {\n    \"time\": \"2025-03-27 18:38:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:38:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:38:00\",\n    \"identifier\": \"\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:38:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:38:00\",\n    \"identifier\": \"Galaxy-Tab-A7-Lite.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:38:00\",\n    \"identifier\": \"BM-PBS01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:38:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:38:00\",\n    \"identifier\": \"LG-Soundbar.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:39:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 26\n  },\n  {\n    \"time\": \"2025-03-27 18:39:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 18\n  },\n  {\n    \"time\": \"2025-03-27 18:39:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:39:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 7\n  },\n  {\n    \"time\": \"2025-03-27 18:39:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:39:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:39:00\",\n    \"identifier\": \"BM-MON.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:39:00\",\n    \"identifier\": \"PI-MIR.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:39:00\",\n    \"identifier\": \"10.10.20.95\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:39:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:40:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:40:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 16\n  },\n  {\n    \"time\": \"2025-03-27 18:40:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 18:40:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 7\n  },\n  {\n    \"time\": \"2025-03-27 18:40:00\",\n    \"identifier\": \"BM-DMS.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:40:00\",\n    \"identifier\": \"BM-NCL.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:40:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:40:00\",\n    \"identifier\": \"\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 18:40:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:40:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:41:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:41:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:41:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 18:41:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:41:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:41:00\",\n    \"identifier\": \"10.10.10.40\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:41:00\",\n    \"identifier\": \"BM-MON.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:41:00\",\n    \"identifier\": \"BM-GRAF.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:41:00\",\n    \"identifier\": \"LG-Soundbar.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:41:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:42:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:42:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:42:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 18:42:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:42:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:42:00\",\n    \"identifier\": \"BM-UPS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:42:00\",\n    \"identifier\": \"unifi.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:42:00\",\n    \"identifier\": \"10.10.10.40\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:42:00\",\n    \"identifier\": \"PI-MIR.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:42:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:43:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 26\n  },\n  {\n    \"time\": \"2025-03-27 18:43:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:43:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 22\n  },\n  {\n    \"time\": \"2025-03-27 18:43:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:43:00\",\n    \"identifier\": \"\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 18:43:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:43:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:43:00\",\n    \"identifier\": \"MR-ROBOT.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:43:00\",\n    \"identifier\": \"BM-VLT.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:43:00\",\n    \"identifier\": \"10.10.20.95\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:44:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 30\n  },\n  {\n    \"time\": \"2025-03-27 18:44:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:44:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:44:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 9\n  },\n  {\n    \"time\": \"2025-03-27 18:44:00\",\n    \"identifier\": \"\",\n    \"count\": 7\n  },\n  {\n    \"time\": \"2025-03-27 18:44:00\",\n    \"identifier\": \"10.10.20.95\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:44:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:44:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:44:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:44:00\",\n    \"identifier\": \"BM-NBX.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:45:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:45:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 23\n  },\n  {\n    \"time\": \"2025-03-27 18:45:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:45:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 18:45:00\",\n    \"identifier\": \"BM-NCL.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:45:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:45:00\",\n    \"identifier\": \"\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 18:45:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:45:00\",\n    \"identifier\": \"BM-GRAF.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:45:00\",\n    \"identifier\": \"PI-MIR.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:46:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 35\n  },\n  {\n    \"time\": \"2025-03-27 18:46:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:46:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:46:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:46:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 18:46:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:46:00\",\n    \"identifier\": \"LG-Soundbar.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:46:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:46:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:46:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:47:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:47:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:47:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:47:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 7\n  },\n  {\n    \"time\": \"2025-03-27 18:47:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:47:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:47:00\",\n    \"identifier\": \"10.10.10.20\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:47:00\",\n    \"identifier\": \"BM-DMS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:47:00\",\n    \"identifier\": \"BM-MON.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:47:00\",\n    \"identifier\": \"PI-MIR.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:48:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:48:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 21\n  },\n  {\n    \"time\": \"2025-03-27 18:48:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 16\n  },\n  {\n    \"time\": \"2025-03-27 18:48:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:48:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 18:48:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:48:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:48:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:48:00\",\n    \"identifier\": \"\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:48:00\",\n    \"identifier\": \"Galaxy-Tab-A7-Lite.it-baer.int\",\n    \"count\": 1\n  },\n  {\n    \"time\": \"2025-03-27 18:49:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 31\n  },\n  {\n    \"time\": \"2025-03-27 18:49:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:49:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 17\n  },\n  {\n    \"time\": \"2025-03-27 18:49:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:49:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 18:49:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 18:49:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:49:00\",\n    \"identifier\": \"\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:49:00\",\n    \"identifier\": \"BM-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:49:00\",\n    \"identifier\": \"BM-MON.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:50:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 33\n  },\n  {\n    \"time\": \"2025-03-27 18:50:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:50:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:50:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 9\n  },\n  {\n    \"time\": \"2025-03-27 18:50:00\",\n    \"identifier\": \"BM-DMS.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:50:00\",\n    \"identifier\": \"BM-NCL.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:50:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:50:00\",\n    \"identifier\": \"\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 18:50:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:50:00\",\n    \"identifier\": \"PI-MIR.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:51:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:51:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:51:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 18\n  },\n  {\n    \"time\": \"2025-03-27 18:51:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:51:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:51:00\",\n    \"identifier\": \"ShellyHT.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:51:00\",\n    \"identifier\": \"BM-NCL.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:51:00\",\n    \"identifier\": \"LG-Soundbar.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:51:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:51:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:52:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:52:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:52:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 10\n  },\n  {\n    \"time\": \"2025-03-27 18:52:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 7\n  },\n  {\n    \"time\": \"2025-03-27 18:52:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:52:00\",\n    \"identifier\": \"BM-MON.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:52:00\",\n    \"identifier\": \"LG-Soundbar.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:52:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:52:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:52:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:53:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:53:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:53:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 9\n  },\n  {\n    \"time\": \"2025-03-27 18:53:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:53:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:53:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:53:00\",\n    \"identifier\": \"10.10.10.40\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:53:00\",\n    \"identifier\": \"PI-MIR.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:53:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:53:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:54:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:54:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:54:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 7\n  },\n  {\n    \"time\": \"2025-03-27 18:54:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 18:54:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:54:00\",\n    \"identifier\": \"\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:54:00\",\n    \"identifier\": \"10.10.10.20\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:54:00\",\n    \"identifier\": \"BM-GRAF.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:54:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:54:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:55:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 26\n  },\n  {\n    \"time\": \"2025-03-27 18:55:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:55:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:55:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 12\n  },\n  {\n    \"time\": \"2025-03-27 18:55:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 9\n  },\n  {\n    \"time\": \"2025-03-27 18:55:00\",\n    \"identifier\": \"\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 18:55:00\",\n    \"identifier\": \"BM-NCL.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:55:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:55:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:55:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:56:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 35\n  },\n  {\n    \"time\": \"2025-03-27 18:56:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 28\n  },\n  {\n    \"time\": \"2025-03-27 18:56:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:56:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:56:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:56:00\",\n    \"identifier\": \"\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:56:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:56:00\",\n    \"identifier\": \"10.10.20.95\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:56:00\",\n    \"identifier\": \"RoboRog.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:56:00\",\n    \"identifier\": \"unifi.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:57:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 26\n  },\n  {\n    \"time\": \"2025-03-27 18:57:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:57:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 9\n  },\n  {\n    \"time\": \"2025-03-27 18:57:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:57:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 18:57:00\",\n    \"identifier\": \"Galaxy-Tab-A7-Lite.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:57:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:57:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:57:00\",\n    \"identifier\": \"10.10.20.95\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:57:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:58:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:58:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:58:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 7\n  },\n  {\n    \"time\": \"2025-03-27 18:58:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:58:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:58:00\",\n    \"identifier\": \"MR-ROBOT.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:58:00\",\n    \"identifier\": \"10.10.20.95\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:58:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:58:00\",\n    \"identifier\": \"BM-MON.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:58:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:59:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 18:59:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 18:59:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 18:59:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:59:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 18:59:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 18:59:00\",\n    \"identifier\": \"BM-UPS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:59:00\",\n    \"identifier\": \"BM-VLT.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:59:00\",\n    \"identifier\": \"PI-MIR.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 18:59:00\",\n    \"identifier\": \"10.10.20.95\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:00:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:00:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 17\n  },\n  {\n    \"time\": \"2025-03-27 19:00:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:00:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 11\n  },\n  {\n    \"time\": \"2025-03-27 19:00:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 19:00:00\",\n    \"identifier\": \"BM-DMS.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:00:00\",\n    \"identifier\": \"BM-NCL.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:00:00\",\n    \"identifier\": \"\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 19:00:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:00:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:01:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 27\n  },\n  {\n    \"time\": \"2025-03-27 19:01:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:01:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:01:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 16\n  },\n  {\n    \"time\": \"2025-03-27 19:01:00\",\n    \"identifier\": \"\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 19:01:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 19:01:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:01:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:01:00\",\n    \"identifier\": \"BM-GRAF.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:01:00\",\n    \"identifier\": \"PI-MIR.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:02:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 28\n  },\n  {\n    \"time\": \"2025-03-27 19:02:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:02:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:02:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 19:02:00\",\n    \"identifier\": \"\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 19:02:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 19:02:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:02:00\",\n    \"identifier\": \"ShellyHT.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:02:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:02:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:03:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:03:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:03:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:03:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 19:03:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:03:00\",\n    \"identifier\": \"10.10.10.30\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:03:00\",\n    \"identifier\": \"BM-MON.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:03:00\",\n    \"identifier\": \"P7P-Baer.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:03:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:03:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:04:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:04:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:04:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:04:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:04:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:04:00\",\n    \"identifier\": \"\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:04:00\",\n    \"identifier\": \"BM-GRAF.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:04:00\",\n    \"identifier\": \"PI-MIR.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:04:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:04:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:05:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:05:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:05:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 7\n  },\n  {\n    \"time\": \"2025-03-27 19:05:00\",\n    \"identifier\": \"BM-NCL.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:05:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:05:00\",\n    \"identifier\": \"\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 19:05:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:05:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:05:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:05:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:06:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:06:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:06:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:06:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 11\n  },\n  {\n    \"time\": \"2025-03-27 19:06:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:06:00\",\n    \"identifier\": \"BM-DMS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:06:00\",\n    \"identifier\": \"LG-Soundbar.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:06:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:06:00\",\n    \"identifier\": \"\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:06:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:07:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 26\n  },\n  {\n    \"time\": \"2025-03-27 19:07:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:07:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:07:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 7\n  },\n  {\n    \"time\": \"2025-03-27 19:07:00\",\n    \"identifier\": \"\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:07:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:07:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:07:00\",\n    \"identifier\": \"BM-NBX.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:07:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:07:00\",\n    \"identifier\": \"LG-Soundbar.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:08:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 30\n  },\n  {\n    \"time\": \"2025-03-27 19:08:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:08:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:08:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:08:00\",\n    \"identifier\": \"\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:08:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:08:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:08:00\",\n    \"identifier\": \"BM-PBS01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:08:00\",\n    \"identifier\": \"ShellyHT.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:08:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:09:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:09:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:09:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:09:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:09:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:09:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:09:00\",\n    \"identifier\": \"BM-MON.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:09:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:09:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:09:00\",\n    \"identifier\": \"\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:10:00\",\n    \"identifier\": \"BM-NCL.it-baer.int\",\n    \"count\": 26\n  },\n  {\n    \"time\": \"2025-03-27 19:10:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:10:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 16\n  },\n  {\n    \"time\": \"2025-03-27 19:10:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 19:10:00\",\n    \"identifier\": \"BM-DMS.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:10:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:10:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:10:00\",\n    \"identifier\": \"\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 19:10:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:10:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:11:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:11:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 20\n  },\n  {\n    \"time\": \"2025-03-27 19:11:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 18\n  },\n  {\n    \"time\": \"2025-03-27 19:11:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:11:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:11:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:11:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:11:00\",\n    \"identifier\": \"LG-Soundbar.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:11:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:11:00\",\n    \"identifier\": \"\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:12:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:12:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:12:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 9\n  },\n  {\n    \"time\": \"2025-03-27 19:12:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 19:12:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:12:00\",\n    \"identifier\": \"Galaxy-Tab-A7-Lite.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:12:00\",\n    \"identifier\": \"BM-UPS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:12:00\",\n    \"identifier\": \"unifi.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:12:00\",\n    \"identifier\": \"10.10.10.40\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:12:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:13:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 26\n  },\n  {\n    \"time\": \"2025-03-27 19:13:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:13:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:13:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:13:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:13:00\",\n    \"identifier\": \"\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:13:00\",\n    \"identifier\": \"BM-VLT.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:13:00\",\n    \"identifier\": \"MR-ROBOT.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:13:00\",\n    \"identifier\": \"PI-MIR.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:13:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:14:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 54\n  },\n  {\n    \"time\": \"2025-03-27 19:14:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:14:00\",\n    \"identifier\": \"P7P-Baer.it-baer.int\",\n    \"count\": 23\n  },\n  {\n    \"time\": \"2025-03-27 19:14:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:14:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 12\n  },\n  {\n    \"time\": \"2025-03-27 19:14:00\",\n    \"identifier\": \"\",\n    \"count\": 9\n  },\n  {\n    \"time\": \"2025-03-27 19:14:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 19:14:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:14:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:14:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:15:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 229\n  },\n  {\n    \"time\": \"2025-03-27 19:15:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:15:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 23\n  },\n  {\n    \"time\": \"2025-03-27 19:15:00\",\n    \"identifier\": \"BM-NCL.it-baer.int\",\n    \"count\": 18\n  },\n  {\n    \"time\": \"2025-03-27 19:15:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:15:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 19:15:00\",\n    \"identifier\": \"\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 19:15:00\",\n    \"identifier\": \"BM-GLC.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:15:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:15:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:16:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:16:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 19\n  },\n  {\n    \"time\": \"2025-03-27 19:16:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:16:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 13\n  },\n  {\n    \"time\": \"2025-03-27 19:16:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:16:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 19:16:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:16:00\",\n    \"identifier\": \"LG-Soundbar.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:16:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:16:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:17:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:17:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 15\n  },\n  {\n    \"time\": \"2025-03-27 19:17:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:17:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 12\n  },\n  {\n    \"time\": \"2025-03-27 19:17:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:17:00\",\n    \"identifier\": \"10.10.10.20\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:17:00\",\n    \"identifier\": \"BM-DMS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:17:00\",\n    \"identifier\": \"BM-NCL.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:17:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:17:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:18:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:18:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:18:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 13\n  },\n  {\n    \"time\": \"2025-03-27 19:18:00\",\n    \"identifier\": \"S22-Ultra-von-Nina.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:18:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:18:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:18:00\",\n    \"identifier\": \"PI-MIR.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:18:00\",\n    \"identifier\": \"LG-Soundbar.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:18:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:18:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:19:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 30\n  },\n  {\n    \"time\": \"2025-03-27 19:19:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:19:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:19:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 13\n  },\n  {\n    \"time\": \"2025-03-27 19:19:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:19:00\",\n    \"identifier\": \"Galaxy-Tab-A7-Lite.it-baer.int\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 19:19:00\",\n    \"identifier\": \"\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 19:19:00\",\n    \"identifier\": \"P7P-Baer.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:19:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:19:00\",\n    \"identifier\": \"BM-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:20:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 32\n  },\n  {\n    \"time\": \"2025-03-27 19:20:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:20:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:20:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 10\n  },\n  {\n    \"time\": \"2025-03-27 19:20:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 19:20:00\",\n    \"identifier\": \"\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 19:20:00\",\n    \"identifier\": \"BM-DMS.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:20:00\",\n    \"identifier\": \"BM-NCL.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:20:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:20:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:21:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:21:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 19\n  },\n  {\n    \"time\": \"2025-03-27 19:21:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:21:00\",\n    \"identifier\": \"BM-GRAF.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 19:21:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:21:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:21:00\",\n    \"identifier\": \"PI-MIR.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:21:00\",\n    \"identifier\": \"BM-NCL.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:21:00\",\n    \"identifier\": \"LG-Soundbar.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:21:00\",\n    \"identifier\": \"10.10.20.95\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:22:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 26\n  },\n  {\n    \"time\": \"2025-03-27 19:22:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:22:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 8\n  },\n  {\n    \"time\": \"2025-03-27 19:22:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 7\n  },\n  {\n    \"time\": \"2025-03-27 19:22:00\",\n    \"identifier\": \"10.10.20.95\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:22:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:22:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:22:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:22:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:22:00\",\n    \"identifier\": \"\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:23:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:23:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:23:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 11\n  },\n  {\n    \"time\": \"2025-03-27 19:23:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 5\n  },\n  {\n    \"time\": \"2025-03-27 19:23:00\",\n    \"identifier\": \"BM-GRAF.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:23:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:23:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:23:00\",\n    \"identifier\": \"10.10.10.20\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:23:00\",\n    \"identifier\": \"BM-HASS.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:23:00\",\n    \"identifier\": \"10.10.10.40\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:24:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:24:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:24:00\",\n    \"identifier\": \"BM-GRAF.it-baer.int\",\n    \"count\": 4\n  },\n  {\n    \"time\": \"2025-03-27 19:24:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:24:00\",\n    \"identifier\": \"\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:24:00\",\n    \"identifier\": \"10.10.10.30\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:24:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:24:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:24:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:24:00\",\n    \"identifier\": \"LED-SZ.it-baer.int\",\n    \"count\": 1\n  },\n  {\n    \"time\": \"2025-03-27 19:25:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 27\n  },\n  {\n    \"time\": \"2025-03-27 19:25:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:25:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 19\n  },\n  {\n    \"time\": \"2025-03-27 19:25:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:25:00\",\n    \"identifier\": \"\",\n    \"count\": 12\n  },\n  {\n    \"time\": \"2025-03-27 19:25:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 7\n  },\n  {\n    \"time\": \"2025-03-27 19:25:00\",\n    \"identifier\": \"BM-NCL.it-baer.int\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:25:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:25:00\",\n    \"identifier\": \"BM-MON.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:25:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:26:00\",\n    \"identifier\": \"ROG-PC.it-baer.int\",\n    \"count\": 47\n  },\n  {\n    \"time\": \"2025-03-27 19:26:00\",\n    \"identifier\": \"localhost\",\n    \"count\": 28\n  },\n  {\n    \"time\": \"2025-03-27 19:26:00\",\n    \"identifier\": \"LGwebOSTV.it-baer.int\",\n    \"count\": 25\n  },\n  {\n    \"time\": \"2025-03-27 19:26:00\",\n    \"identifier\": \"BM-FW03.it-baer.int\",\n    \"count\": 24\n  },\n  {\n    \"time\": \"2025-03-27 19:26:00\",\n    \"identifier\": \"BM-CM.it-baer.int\",\n    \"count\": 14\n  },\n  {\n    \"time\": \"2025-03-27 19:26:00\",\n    \"identifier\": \"\",\n    \"count\": 6\n  },\n  {\n    \"time\": \"2025-03-27 19:26:00\",\n    \"identifier\": \"BM-DKR.it-baer.int\",\n    \"count\": 3\n  },\n  {\n    \"time\": \"2025-03-27 19:26:00\",\n    \"identifier\": \"BM-WP01.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:26:00\",\n    \"identifier\": \"MAIN-WP.it-baer.int\",\n    \"count\": 2\n  },\n  {\n    \"time\": \"2025-03-27 19:26:00\",\n    \"identifier\": \"unifi.it-baer.int\",\n    \"count\": 2\n  }\n]",
+          "data": "",
           "dataOverrides": [],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
@@ -1603,7 +1630,7 @@
           "source": "url",
           "type": "json",
           "uql": "parse-json | jsonata \"\r\n  $map($keys($), function($timestamp) {\r\n    $map($lookup($, $timestamp).*, function($host, $ip) {\r\n      {\r\n        \\\"timestamp\\\": $timestamp,\r\n        \\\"count\\\": $host.count,\r\n        \\\"hostname\\\": $host.hostname\r\n      }\r\n    })\r\n  })\r\n\"\r\n",
-          "url": "https://n8n.it-baer.net/webhook/unbound",
+          "url": "https://your_api_endpoint.net/webhook/unbound/rolling?clients=1&timeRange=$range",
           "url_options": {
             "data": "",
             "headers": [
@@ -1612,10 +1639,12 @@
                 "value": "49HVvb8B2rnRx8R4eDsP"
               }
             ],
-            "method": "GET"
+            "method": "GET",
+            "params": []
           }
         }
       ],
+      "timeFrom": "$range",
       "title": "Client Activity",
       "transformations": [
         {
@@ -1636,6 +1665,29 @@
           "options": {
             "format": "multi"
           }
+        },
+        {
+          "id": "renameByRegex",
+          "options": {
+            "regex": "\\bcount (.*)",
+            "renamePattern": "$1"
+          }
+        },
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "isNotNull",
+                  "options": {}
+                },
+                "fieldName": "count"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
         }
       ],
       "type": "timeseries"
@@ -1643,7 +1695,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_OPNSENSE_UNBOUND DNS}"
+        "uid": "${DS_N8N}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1656,7 +1708,7 @@
               "type": "auto",
               "wrapText": false
             },
-            "filterable": false,
+            "filterable": true,
             "inspect": false
           },
           "mappings": [],
@@ -1770,8 +1822,7 @@
             },
             "properties": [
               {
-                "id": "custom.width",
-                "value": 219
+                "id": "custom.width"
               }
             ]
           },
@@ -1811,7 +1862,7 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 243
+                "value": 214
               }
             ]
           },
@@ -1841,11 +1892,12 @@
         ]
       },
       "gridPos": {
-        "h": 21,
+        "h": 17,
         "w": 22,
         "x": 1,
         "y": 28
       },
+      "hideTimeOverride": true,
       "id": 5,
       "options": {
         "cellHeight": "md",
@@ -1868,23 +1920,24 @@
           "columns": [],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_OPNSENSE_UNBOUND DNS}"
+            "uid": "${DS_N8N}"
           },
           "filters": [],
           "format": "table",
           "global_query_id": "",
           "parser": "backend",
           "refId": "A",
-          "root_selector": "$.rows",
+          "root_selector": "",
           "source": "url",
           "type": "json",
-          "url": "/overview/searchQueries",
+          "url": "https://your_api_endpoint.net/webhook/unbound/searchQueries",
           "url_options": {
             "data": "",
             "method": "GET"
           }
         }
       ],
+      "timeFrom": "$range",
       "title": "Queries",
       "transformations": [
         {
@@ -1926,18 +1979,6 @@
           }
         },
         {
-          "id": "sortBy",
-          "options": {
-            "fields": {},
-            "sort": [
-              {
-                "desc": true,
-                "field": "Time"
-              }
-            ]
-          }
-        },
-        {
           "id": "convertFieldType",
           "options": {
             "conversions": [
@@ -1949,6 +1990,18 @@
             ],
             "fields": {}
           }
+        },
+        {
+          "id": "sortBy",
+          "options": {
+            "fields": {},
+            "sort": [
+              {
+                "desc": true,
+                "field": "Time"
+              }
+            ]
+          }
         }
       ],
       "type": "table"
@@ -1956,7 +2009,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_OPNSENSE_UNBOUND DNS}"
+        "uid": "${DS_N8N}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2071,9 +2124,10 @@
         "h": 11,
         "w": 10,
         "x": 1,
-        "y": 49
+        "y": 45
       },
       "id": 9,
+      "interval": "10m",
       "options": {
         "cellHeight": "sm",
         "footer": {
@@ -2093,19 +2147,20 @@
       "targets": [
         {
           "columns": [],
+          "data": "",
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_OPNSENSE_UNBOUND DNS}"
+            "uid": "${DS_N8N}"
           },
           "filters": [],
           "format": "table",
           "global_query_id": "",
           "parser": "backend",
           "refId": "A",
-          "root_selector": "$each(top, function($value, $key) {\n  {\n    \"domain\": $key,\n    \"total\": $value.total,\n    \"percentage\": $value.pcnt,\n    \"stats\": $value.total & \" (\" & $value.pcnt & \"%)\"\n  }\n})\n",
+          "root_selector": "",
           "source": "url",
           "type": "json",
-          "url": "/overview/totals/10",
+          "url": "https://your_api_endpoint.net/webhook/unbound/totals?top=10",
           "url_options": {
             "data": "",
             "method": "GET"
@@ -2113,6 +2168,24 @@
         }
       ],
       "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "blocked"
+                  }
+                },
+                "fieldName": "type"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
         {
           "id": "convertFieldType",
           "options": {
@@ -2177,8 +2250,10 @@
             "excludeByName": {
               "Row": true,
               "Top": false,
+              "blocklist": true,
               "percentage": true,
-              "total": true
+              "total": true,
+              "type": true
             },
             "includeByName": {},
             "indexByName": {
@@ -2196,13 +2271,6 @@
               "total": ""
             }
           }
-        },
-        {
-          "id": "convertFieldType",
-          "options": {
-            "conversions": [],
-            "fields": {}
-          }
         }
       ],
       "type": "table"
@@ -2210,7 +2278,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_OPNSENSE_UNBOUND DNS}"
+        "uid": "${DS_N8N}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2299,23 +2367,11 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 160
+                "value": 150
               },
               {
                 "id": "custom.align",
                 "value": "right"
-              }
-            ]
-          },
-          {
-            "matcher": {
-              "id": "byName",
-              "options": " Top Passed"
-            },
-            "properties": [
-              {
-                "id": "custom.width",
-                "value": 611
               }
             ]
           },
@@ -2327,7 +2383,31 @@
             "properties": [
               {
                 "id": "custom.width",
-                "value": 474
+                "value": 338
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "blocklist"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 100
+              }
+            ]
+          },
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Blocklist"
+            },
+            "properties": [
+              {
+                "id": "custom.width",
+                "value": 147
               }
             ]
           }
@@ -2337,9 +2417,10 @@
         "h": 11,
         "w": 10,
         "x": 13,
-        "y": 49
+        "y": 45
       },
-      "id": 10,
+      "id": 15,
+      "interval": "10m",
       "options": {
         "cellHeight": "sm",
         "footer": {
@@ -2359,19 +2440,20 @@
       "targets": [
         {
           "columns": [],
+          "data": "",
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_OPNSENSE_UNBOUND DNS}"
+            "uid": "${DS_N8N}"
           },
           "filters": [],
           "format": "table",
           "global_query_id": "",
           "parser": "backend",
           "refId": "A",
-          "root_selector": "$each(top_blocked, function($value, $key) {\n  {\n    \"domain\": $key & \" (\" & $value.blocklist & \")\",\n    \"blocklist\": $value.blocklist,\n    \"total\": $value.total,\n    \"percentage\": $value.pcnt,\n    \"stats\": $value.total & \" (\" & $value.pcnt & \"%)\"\n  }\n})\n",
+          "root_selector": "",
           "source": "url",
           "type": "json",
-          "url": "/overview/totals/10",
+          "url": "https://your_api_endpoint.net/webhook/unbound/totals?top=10",
           "url_options": {
             "data": "",
             "method": "GET"
@@ -2379,6 +2461,24 @@
         }
       ],
       "transformations": [
+        {
+          "id": "filterByValue",
+          "options": {
+            "filters": [
+              {
+                "config": {
+                  "id": "equal",
+                  "options": {
+                    "value": "passed"
+                  }
+                },
+                "fieldName": "type"
+              }
+            ],
+            "match": "any",
+            "type": "exclude"
+          }
+        },
         {
           "id": "convertFieldType",
           "options": {
@@ -2442,9 +2542,11 @@
           "options": {
             "excludeByName": {
               "Row": true,
-              "blocklist": true,
+              "Top": false,
+              "blocklist": false,
               "percentage": true,
-              "total": true
+              "total": true,
+              "type": true
             },
             "includeByName": {},
             "indexByName": {
@@ -2457,6 +2559,7 @@
             },
             "renameByName": {
               "Top": " ",
+              "blocklist": "Blocklist",
               "domain": " Top Blocked",
               "stats": " ",
               "total": ""
@@ -2471,10 +2574,40 @@
   "schemaVersion": 41,
   "tags": [],
   "templating": {
-    "list": []
+    "list": [
+      {
+        "allowCustomValue": false,
+        "current": {
+          "text": "24h",
+          "value": "24h"
+        },
+        "hide": 2,
+        "label": "Time Range",
+        "name": "range",
+        "options": [
+          {
+            "selected": false,
+            "text": "1 Hour",
+            "value": "1h"
+          },
+          {
+            "selected": false,
+            "text": "12 Hours",
+            "value": "12h"
+          },
+          {
+            "selected": true,
+            "text": "24 Hours",
+            "value": "24h"
+          }
+        ],
+        "query": "1 Hour : 1h, 12 Hours : 12h, 24 Hours : 24h",
+        "type": "custom"
+      }
+    ]
   },
   "time": {
-    "from": "now-1h",
+    "from": "now-24h",
     "to": "now"
   },
   "timepicker": {
@@ -2483,6 +2616,6 @@
   "timezone": "browser",
   "title": "Unbound DNS",
   "uid": "bdn6ozjq9z0u8a",
-  "version": 185,
+  "version": 213,
   "weekStart": ""
 }
