@@ -48,3 +48,8 @@ If images are not displaying properly:
 3. Ensure the image paths in the dashboard JSON match where you placed the assets
 
 
+## Support Development 💜
+
+If you find this Dashboard useful, consider supporting this and future creations, which heavily relies on coffee:
+
+<a href="https://www.buymeacoffee.com/itbaer" target="_blank"><img src="https://github.com/user-attachments/assets/64107f03-ba5b-473e-b8ad-f3696fe06002" alt="Buy Me A Coffee" style="height: 60px !important;max-width: 217px !important;" ></a>
