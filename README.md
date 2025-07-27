@@ -6,7 +6,7 @@
 [![Grafana](https://img.shields.io/badge/Grafana-Dashboards-orange.svg)](https://grafana.com/)
 ![GitHub stars](https://img.shields.io/github/stars/it-baer/grafana?style=social)
 
-**This Repository contains a Collection of Grafana Dashboards.
+**This Repository contains a constantly growing Collection of Grafana Dashboards.
 <br>
 Each Dashboard is organized in its own directory with all necessary Assets and Documentation.**
 </div>
@@ -26,6 +26,10 @@ Dashboard for Monitoring Unbound DNS via OPNsense API, including all necessary A
 **For detailed installation and configuration Instructions, please see the [dashboard-specific README](dashboards/unbound-dns/README.md).**
 
 ![Dashboard-Unbound-DNS](screenshots/unbound-dns.jpeg)
+
+<br>
+
+### More to come!
 
 <br>
 
