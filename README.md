@@ -1,25 +1,35 @@
-# Unbound DNS Grafana Dashboard
+# Grafana Dashboards
 
-Grafana dashboard for monitoring Unbound DNS servers, complete with all necessary assets.
+<div align="center">
 
+[![License: AGPL-3.0](https://img.shields.io/badge/License-AGPL%20v3-blue.svg)](https://www.gnu.org/licenses/agpl-3.0)
+[![Grafana](https://img.shields.io/badge/Grafana-Dashboards-orange.svg)](https://grafana.com/)
+![GitHub stars](https://img.shields.io/github/stars/it-baer/grafana?style=social)
 
-### Screenhot
-![Dashboard-Unbound-DNS](https://github.com/user-attachments/assets/71d4c57b-0fcf-4c36-9eb8-8863c675652b)
+**This Repository contains a Collection of Grafana Dashboards.
+<br>
+Each Dashboard is organized in its own directory with all necessary Assets and Documentation.**
+</div>
 
+## 📊 Dashboards
 
-## Installation
+### [Unbound DNS](dashboards/unbound-dns/)
+Dashboard for Monitoring Unbound DNS via OPNsense API, including all necessary Assets. 
+**For detailed installation and configuration Instructions, please see the [dashboard-specific README](dashboards/unbound-dns/README.md).**
 
-### Prerequisites
+![Dashboard-Unbound-DNS](screenshots/unbound-dns.jpeg)
+
+<br>
+
+## ⚙️ Installation
+
+### 📋 Prerequisites
 
 - Grafana (v11.0.0 or higher)
-- Plugins:
-  - Infinity Data Source
-  - Business Variable Plugin
-- OPNsense API Key configured in Infinity Datasource
-- (optional) n8n for formatting OPNsense API Responses
+- Plugins required by specific dashboards (see individual dashboard documentation)
+- Data sources configured as required by specific dashboards
 
-
-### Import via Grafana UI
+### 🔽 Import via Grafana UI
 
 1. Clone this repository:
 
@@ -27,29 +37,37 @@ Grafana dashboard for monitoring Unbound DNS servers, complete with all necessar
 git clone https://github.com/IT-BAER/grafana.git
 ```
 
-2. In Grafana, navigate to **Dashboards** → **+ Import**
-3. Click on **Upload JSON file** and select the `dashboard.json` file from the `/grafana/dashboards/unbound-dns` directory
-4. Before finalizing the import, ensure the dashboard is using your working data sources
-5. Copy the contents of the `assets` folder to your Grafana's public assets directory:
+2. Navigate to the directory of the dashboard you want to import (e.g., `dashboards/unbound-dns/`)
+3. In Grafana, navigate to **Dashboards** → **+ Import**
+4. Click on **Upload JSON file** and select the `dashboard.json` file from the dashboard's directory
+5. Before finalizing the import, ensure the dashboard is using your working data sources
+6. Copy any assets from the dashboard's `assets` folder to your Grafana's public assets directory (if required by the specific dashboard)
 
-```bash
-cp -r grafana/dashboards/unbound-dns/assets/* /usr/share/grafana/public/img/bg/
-```
+Note: The path may vary depending on your Grafana installation. Refer to individual dashboard documentation for specific asset requirements.
 
-Note: The path may vary depending on your Grafana installation
+<br>
 
+## 🚨 Troubleshooting
 
-## Troubleshooting
-
-If images are not displaying properly:
+If images are not displaying properly for any dashboard:
 
 1. Verify that the assets were copied to the correct location
 2. Check Browser Dev Tools for any path-related errors
 3. Ensure the image paths in the dashboard JSON match where you placed the assets
+4. Refer to the specific dashboard's documentation for additional troubleshooting steps
 
+<br>
 
-## Support Development 💜
+## 💜 Support Development
 
-If you find this Dashboard useful, consider supporting this and future creations, which heavily relies on coffee:
+If you find any of these Dashboards useful, consider supporting this and future creations, which heavily relies on Coffee:
 
+<div align="center">
 <a href="https://www.buymeacoffee.com/itbaer" target="_blank"><img src="https://github.com/user-attachments/assets/64107f03-ba5b-473e-b8ad-f3696fe06002" alt="Buy Me A Coffee" style="height: 60px !important;max-width: 217px !important;" ></a>
+</div>
+
+<br>
+
+## 📄 License
+
+This project is licensed under the [AGPL-3.0](LICENSE) license.

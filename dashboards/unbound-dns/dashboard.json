@@ -1,20 +1,12 @@
 {
   "__inputs": [
     {
-      "name": "DS_N8N",
-      "label": "n8n",
+      "name": "DS_UNBOUND",
+      "label": "Unbound DNS",
       "description": "",
       "type": "datasource",
       "pluginId": "yesoreyeram-infinity-datasource",
       "pluginName": "Infinity"
-    },
-    {
-      "name": "DS_PROXMOX",
-      "label": "proxmox",
-      "description": "",
-      "type": "datasource",
-      "pluginId": "influxdb",
-      "pluginName": "InfluxDB"
     }
   ],
   "__elements": {},
@@ -29,13 +21,7 @@
       "type": "grafana",
       "id": "grafana",
       "name": "Grafana",
-      "version": "11.6.0"
-    },
-    {
-      "type": "datasource",
-      "id": "influxdb",
-      "name": "InfluxDB",
-      "version": "1.0.0"
+      "version": "12.1.0"
     },
     {
       "type": "panel",
@@ -65,7 +51,7 @@
       "type": "datasource",
       "id": "yesoreyeram-infinity-datasource",
       "name": "Infinity",
-      "version": "3.2.0"
+      "version": "3.3.0"
     }
   ],
   "annotations": {
@@ -93,7 +79,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_N8N}"
+        "uid": "${DS_UNBOUND}"
       },
       "fieldConfig": {
         "defaults": {
@@ -105,7 +91,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "transparent"
+                "color": "transparent",
+                "value": 0
               }
             ]
           }
@@ -212,7 +199,7 @@
               "name": "Res BG",
               "placement": {
                 "height": 70,
-                "left": 161.47503662109375,
+                "left": 140.20623779296875,
                 "top": 24,
                 "width": 250
               },
@@ -256,7 +243,7 @@
               "name": "Res Stat",
               "placement": {
                 "height": 42,
-                "left": 163.97503662109375,
+                "left": 142.70623779296875,
                 "top": 24,
                 "width": 77
               },
@@ -299,7 +286,7 @@
               "name": "Res Pct",
               "placement": {
                 "height": 56,
-                "left": 78.47503662109375,
+                "left": 57.20623779296875,
                 "top": 24,
                 "width": 82
               },
@@ -336,7 +323,7 @@
               "name": "Res Label",
               "placement": {
                 "height": 28,
-                "left": 119.97503662109375,
+                "left": 98.70623779296875,
                 "top": 66,
                 "width": 165
               },
@@ -372,7 +359,7 @@
               "name": "Res Icon",
               "placement": {
                 "height": 70,
-                "left": 244.97503662109375,
+                "left": 223.70623779296875,
                 "top": 24,
                 "width": 85
               },
@@ -406,7 +393,7 @@
               "name": "Total BG",
               "placement": {
                 "height": 70,
-                "left": 461.47503662109375,
+                "left": 440.20623779296875,
                 "top": 24,
                 "width": 250
               },
@@ -444,7 +431,7 @@
               "name": "Total Label",
               "placement": {
                 "height": 28,
-                "left": 418.97503662109375,
+                "left": 397.70623779296875,
                 "top": 66,
                 "width": 165
               },
@@ -487,7 +474,7 @@
               "name": "Total Stat",
               "placement": {
                 "height": 42,
-                "left": 418.97503662109375,
+                "left": 397.70623779296875,
                 "top": 24,
                 "width": 165
               },
@@ -524,8 +511,7 @@
               "name": "Total Icon",
               "placement": {
                 "height": 70,
-                "left": 543.9750366210938,
-                "rotation": 0,
+                "left": 522.7062377929688,
                 "top": 24,
                 "width": 85
               },
@@ -559,7 +545,7 @@
               "name": "Blocked BG",
               "placement": {
                 "height": 70,
-                "left": -137.52496337890625,
+                "left": -158.79376220703125,
                 "top": 24,
                 "width": 250
               },
@@ -598,7 +584,7 @@
               "name": "Blocked Stat",
               "placement": {
                 "height": 42,
-                "left": -134.52496337890625,
+                "left": -155.79376220703125,
                 "top": 24,
                 "width": 76
               },
@@ -641,8 +627,7 @@
               "name": "Blocked Pct",
               "placement": {
                 "height": 56,
-                "left": -220.5,
-                "rotation": 0,
+                "left": -241.79376220703125,
                 "top": 24,
                 "width": 82
               },
@@ -679,7 +664,7 @@
               "name": "Blocked Label",
               "placement": {
                 "height": 28,
-                "left": -179.02496337890625,
+                "left": -200.29376220703125,
                 "top": 66,
                 "width": 165
               },
@@ -715,7 +700,7 @@
               "name": "Blocked Icon",
               "placement": {
                 "height": 70,
-                "left": -55.02496337890625,
+                "left": -76.29376220703125,
                 "top": 24,
                 "width": 85
               },
@@ -749,8 +734,7 @@
               "name": "List BG",
               "placement": {
                 "height": 70,
-                "left": -436.52496337890625,
-                "rotation": 0,
+                "left": -457.79376220703125,
                 "top": 24,
                 "width": 250
               },
@@ -787,8 +771,7 @@
               "name": "List Label",
               "placement": {
                 "height": 28,
-                "left": -479.02496337890625,
-                "rotation": 0,
+                "left": -500.29376220703125,
                 "top": 66,
                 "width": 165
               },
@@ -831,8 +814,7 @@
               "name": "List Stat",
               "placement": {
                 "height": 42,
-                "left": -479.02496337890625,
-                "rotation": 0,
+                "left": -500.29376220703125,
                 "top": 24,
                 "width": 165
               },
@@ -868,8 +850,7 @@
               "name": "List Icon",
               "placement": {
                 "height": 70,
-                "left": -354.02496337890625,
-                "rotation": 0,
+                "left": -375.29376220703125,
                 "top": 24,
                 "width": 85
               },
@@ -909,8 +890,7 @@
               "name": "Date",
               "placement": {
                 "height": 21,
-                "left": -517.0249633789062,
-                "rotation": 0,
+                "left": -538.2937622070312,
                 "top": 3,
                 "width": 77
               },
@@ -947,10 +927,10 @@
               "name": "Since",
               "placement": {
                 "height": 21,
-                "left": -468.02496337890625,
+                "left": -484.5,
                 "rotation": 0,
                 "top": 3,
-                "width": 43
+                "width": 53
               },
               "type": "text"
             },
@@ -977,16 +957,17 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "center",
+                "horizontal": "left",
                 "vertical": "top"
               },
               "links": [],
               "name": "OPNsense Icon",
               "placement": {
-                "height": 100,
-                "left": 799.5,
-                "top": -1,
-                "width": 100
+                "height": 58,
+                "left": 19,
+                "rotation": 0,
+                "top": 3,
+                "width": 58
               },
               "type": "rectangle"
             },
@@ -1013,17 +994,17 @@
                 "valign": "middle"
               },
               "constraint": {
-                "horizontal": "center",
+                "horizontal": "right",
                 "vertical": "top"
               },
               "links": [],
               "name": "Unbound Icon",
               "placement": {
-                "height": 100,
-                "left": -801.5,
+                "height": 67,
+                "right": -14,
                 "rotation": 0,
-                "top": -1,
-                "width": 100
+                "top": 3,
+                "width": 73
               },
               "type": "rectangle"
             }
@@ -1041,7 +1022,7 @@
         },
         "showAdvancedTypes": true
       },
-      "pluginVersion": "11.6.0",
+      "pluginVersion": "12.1.0",
       "targets": [
         {
           "columns": [],
@@ -1054,17 +1035,17 @@
           ],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_N8N}"
+            "uid": "${DS_UNBOUND}"
           },
           "filters": [],
           "format": "table",
           "global_query_id": "",
           "parser": "backend",
           "refId": "A",
-          "root_selector": "",
+          "root_selector": "$type($) = \"array\" ? \n  $map($, function($item) {\n    {\n      \"Total\": $item.total,\n      \"Resolved #\": $item.resolved.total,\n      \"Resolved %\": $item.resolved.pcnt,\n      \"Blocked #\": $item.blocked.total,\n      \"Blocked %\": $item.blocked.pcnt,\n      \"Blocklist Size\": $item.blocklist_size,\n      \"Start Time\": $item.start_time\n    }\n  })\n: [{\n    \"Total\": $.total,\n    \"Resolved #\": $.resolved.total,\n    \"Resolved %\": $.resolved.pcnt,\n    \"Blocked #\": $.blocked.total,\n    \"Blocked %\": $.blocked.pcnt,\n    \"Blocklist Size\": $.blocklist_size,\n    \"Start Time\": $.start_time\n  }]\n",
           "source": "url",
           "type": "json",
-          "url": "https://your_api_endpoint",
+          "url": "/totals/0",
           "url_options": {
             "data": "",
             "headers": [],
@@ -1101,7 +1082,7 @@
     },
     {
       "gridPos": {
-        "h": 2,
+        "h": 1,
         "w": 24,
         "x": 0,
         "y": 3
@@ -1113,17 +1094,17 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<div class=\"hr-text-container\">\n  <div class=\"hr-left\"></div>\n  <div class=\"text\">Overall Queries</div>\n  <div class=\"hr-right\"></div>\n</div>\n\n<style>\n\n.hr-text-container {\n  display: flex;\n  align-items: center;\n  width: 100%;\n  height: auto;\n  position: absolute;\n  margin:0;\n  top: 50%;\n  transform: translateY(-50%);\n}\n\n.hr-left {\n  flex-grow: 1;\n  height: 2px;\n  background: linear-gradient(to right, transparent, cyan);\n}\n\n.text {\n  color: #ddd;\n  padding: 0 10px;\n  font-weight: 500;\n  font-size: 18px;\n}\n\n.hr-right {\n  flex-grow: 1;\n  height: 2px;\n  background: linear-gradient(to left, transparent, cyan);\n}\n\n#pageContent {\n    background-image: url(public/img/bg/dns-bg.jpg);\n    background-attachment: fixed;\n    background-repeat: no-repeat;\n    background-size: cover;\n}\n\n[class$=\"panel-container\"]:not([class$=\"panel-container-panel-transparent-container\"]) {\n    border-radius: 10px !important;\n    background-color: rgba(10, 10, 10, 0.9);\n    box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);\n}\n\n[data-viz-panel-key=\"panel-6\"] .gf-form > * > [class$=\"horizontal-group\"] {\n  justify-content: center!important;\n}\n\n[data-viz-panel-key=\"panel-8\"] [class$=\"panel-content\"], [data-viz-panel-key=\"panel-6\"] [class$=\"panel-content\"] {\n  padding: 0!important;\n  }\n\n\ndiv#\\:r10\\: {\n  padding:0 !important;\n  margin:0 !important;\n}\n\n/********* Range Buttons ***********/\n\n[data-viz-panel-key=\"panel-14\"] [data-testid=\"data-testid button-view\"] {\n    overflow: visible;\n}\n\n[data-viz-panel-key=\"panel-14\"] [data-testid*=\"panel content\"] {\n    justify-items: center;\n    margin-top: -7px !important;\n}\n\n[data-viz-panel-key=\"panel-14\"] [data-testid=\"data-testid button-view\"] [type=button] {\n    border-radius: 8px;\n}\n\n/************************************/\n\n.gf-form > *:has(> [class$=\"horizontal-group\"]) {\n    height: auto;\n    overflow: visible;\n}\n\n\n[class*=\"panel-container\"]:hover {\n  border: 1px solid rgba(204, 204, 220, 0);\n}\n\n.gf-form > * > [class$=\"horizontal-group\"] > * > button {\n  border-radius: 10px;\n  background: rgba(30, 30, 30, 0.5);\n  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);\n}\n\n.gf-form > * > [class$=\"horizontal-group\"] > * > button:hover {\n  background: rgba(50, 50, 50, 0.5);\n}\n\n\n</style>\n\n\n\n",
+        "content": "<div class=\"hr-text-container\">\n  <div class=\"hr-left\"></div>\n  <div class=\"text\">Overall Queries</div>\n  <div class=\"hr-right\"></div>\n</div>\n\n\n<style>\n  /* Dashboard Styles */\n\n  [data-testid=\"data-testid Panel header \"] [data-testid=\"data-testid panel\"],\n  [data-testid=\"data-testid Panel header \"] [data-testid=\"data-testid text content\"] {\n    padding: 0;\n  }\n\n  /* Default sticky positioning */\n  .react-grid-item:has(.custom-nav) {\n    position: sticky !important;\n    top: 80px;\n    z-index: 1000;\n    padding: 0;\n    border-bottom-left-radius: 15px;\n    border-bottom-right-radius: 15px;\n    height: 45px !important;\n    margin-top: -40px;\n  }\n\n  .react-grid-item {\n    contain: layout style;\n    padding: 5px 10px;\n  }\n\n  .custom-nav,\n  .react-grid-item:has(.custom-nav),\n  [data-testid*=\"panel content\"] {\n    transform: translateZ(0);\n    will-change: transform;\n  }\n\n  [data-testid*=\"Panel header\"]:has(.custom-nav) {\n    border: none !important;\n  }\n\n  [data-testid=\"data-testid panel\"]:has(.custom-nav) {\n    backdrop-filter: blur(8px);\n    will-change: backdrop-filter;\n    contain: layout style paint;\n    border-bottom-left-radius: 15px;\n    border-bottom-right-radius: 15px;\n  }\n\n  /* Kiosk mode overrides */\n  body:not(:has(header)) .react-grid-item:has(.custom-nav) {\n    top: 0 !important;\n  }\n\n  [class*=\"-hover-container-widget\"] {\n    box-shadow: none;\n  }\n\n  .rbc-calendar .rbc-event-content {\n    opacity: 0;\n  }\n\n  .rbc-calendar .rbc-event {\n    margin-top: -20px;\n    background-color: transparent !important;\n    background: linear-gradient(to right, transparent, #028440 20%, #028440 80%, transparent 100%) bottom;\n    background-size: 100% 2px;\n    background-repeat: no-repeat;\n    height: 100% !important;\n    max-width: inherit;\n  }\n\n  .rbc-calendar .rbc-date-cell {\n    text-align: center;\n    padding: 0;\n    transition: background-color 0.2s ease-out;\n  }\n\n  .rbc-date-cell:hover {\n    background-color: rgb(255 255 255 / 10%);\n  }\n\n  .rbc-calendar .rbc-date-cell.rbc-now {\n    background: rgb(57 118 204 / 50%);\n  }\n\n  .rbc-calendar .rbc-month-view {\n    border-radius: 8px;\n  }\n\n  .rbc-calendar .rbc-row-bg>div:last-child {\n    border-bottom-right-radius: 8px;\n  }\n\n  .rbc-calendar [type=\"button\"] span {\n    font-size: 0.8rem;\n  }\n\n  .rbc-calendar [type=\"button\"] {\n    height: 20px;\n  }\n\n  .rbc-calendar>*>span {\n    font-size: 0.9rem;\n    line-height: 1;\n    max-width: 45px !important;\n    overflow: hidden;\n    text-overflow: ellipsis;\n    margin: 4px 0;\n  }\n\n  .rbc-calendar button.rbc-button-link {\n    font-size: 0.8rem;\n  }\n\n  .rbc-calendar .rbc-row-content {\n    overflow: hidden;\n  }\n\n  .rbc-calendar>div:first-child {\n    margin: 0px 8px 2px;\n  }\n\n  .rbc-event {\n    position: absolute;\n    bottom: 0;\n    max-width: 41px;\n    z-index: 0;\n    border-radius: 0;\n    height: 4px;\n    opacity: 0.8;\n  }\n\n  [class*=\"-canvas-wrapper-old\"]>div>div {\n    padding: 0;\n  }\n\n  [data-testid*=\"dashboard controls\"] {\n    position: absolute;\n    width: fit-content;\n    right: 0;\n  }\n\n  .react-grid-item:has(h2[title=\"Subreddits_formatted\"]) {\n    display: none;\n  }\n\n  [data-testid*=\"RefreshPicker run button\"] div {\n    display: none;\n  }\n\n  [data-testid*=\"RefreshPicker run button\"] {\n    width: auto !important;\n    border-bottom-left-radius: 50%;\n  }\n\n  .button-group:has([data-testid*=\"TimePicker Open Button\"]) {\n    display: none;\n  }\n\n  [data-testid=\"data-testid panel button-submit\"] {\n    background: rgb(47 103 172 / 41%);\n    border-radius: 8px;\n    margin-top: 5px;\n  }\n\n  [data-testid*=\"button-view\"] {\n    align-content: center;\n    justify-content: flex-end;\n  }\n\n  [data-testid*=\"button-view\"] [type=\"button\"] {\n    border-radius: 8px;\n  }\n\n  [data-testid*=\"panel content\"] * [class*=\"input-wrapper\"] {\n    border-radius: 8px;\n    margin: 2px;\n    background: rgb(24 27 31 / 50%);\n    border: solid 1px rgba(204, 204, 220, 0.3);\n  }\n\n  [data-testid*=\"panel content\"] div[title*=\"metrics\"] {\n    padding: 0px !important;\n  }\n\n  [data-testid*=\"panel content\"] * label {\n    color: #ddd;\n    background: none;\n    border: none;\n    margin: 2px;\n  }\n\n  [class*=\"-body\"] {\n    max-width: 1600px;\n    margin-inline: auto;\n    width: 100%;\n    padding: 0 0 16px 0;\n  }\n\n  [class*=\"-canvas-wrapper-old\"]>div>div {\n    padding: 0;\n  }\n\n  .react-grid-item {\n    padding: 5px 10px;\n  }\n\n  [data-testid=\"data-testid panel\"]:has([class=\"searchEngineSelect\"]) {\n    padding: 0;\n  }\n\n  [data-testid=\"data-testid panel\"] {\n    padding-top: 10px;\n  }\n\n  [data-testid=\"data-testid panel\"]:has([data-testid=\"data-testid text content\"]) {\n    -webkit-mask-image: linear-gradient(to bottom, black 95%, transparent 100%);\n    mask-image: linear-gradient(to bottom, black 95%, transparent 100%);\n  }\n\n  [class*=-panel-title] h2 {\n    color: rgba(162, 162, 162, 0.9);\n    font-weight: 600;\n    text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);\n    overflow: visible;\n  }\n\n  [data-testid=\"data-testid form-elements field-textarea\"],\n  [data-testid*=\"text-variable\"] {\n    background: rgba(0, 0, 0, 0.7);\n    border-radius: 8px;\n    line-height: 1.5;\n  }\n\n  [data-testid*=\"panel content\"]:has(.weather-widget) .markdown-html {\n    overflow: hidden;\n  }\n\n  [data-testid*=\"panel content\"]:has(.weather-widget) [data-testid*=\"panel content\"] {\n    padding: 0 !important;\n  }\n\n  [data-testid*=\"panel content\"]:has(.weather-widget) .ww-box {\n    transform: scale(0.9);\n    margin-top: -12px !important;\n  }\n\n  [class*=\"-page-wrapper\"] {\n    position: relative;\n    /* Remove background-attachment: fixed; */\n    /* Remove background-image: url(public/img/glancy-wp.png); */\n  }\n\n  /* Create fixed background layer */\n  [class*=\"-page-wrapper\"]:before {\n    content: '';\n    position: fixed;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-image: url(public/img/glancy-wp.png);\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    z-index: -10;\n    transform: translateZ(0);\n    will-change: transform;\n  }\n\n  [class^=\"css\"]:has([data-testid=\"data-testid dashboard controls\"]) {\n    background-color: transparent;\n  }\n\n  [class$=\"panel-container\"]:not([class$=\"panel-container-panel-transparent-container\"]) {\n    background: none;\n    border: none;\n  }\n\n  :not([class*=\"transparent\"])>[data-testid*=\"panel content\"] {\n    background-color: rgba(5, 5, 5, 0.75);\n    box-shadow: 0 0 18px rgba(0, 0, 0, 0.5);\n    border-radius: 10px !important;\n    border: solid 1px rgb(30 30 30);\n    transform: translateZ(0);\n    will-change: transform;\n  }\n\n  .scene-resize-handle:not(:hover) {\n    opacity: 0;\n  }\n\n  [class$=\"panel-container-panel-transparent-container\"]:hover {\n    border: 1px solid transparent;\n  }\n\n  [class*=\"-toolbar-button-panel-menu\"] {\n    position: absolute;\n    right: 0;\n  }\n\n  .show-on-hover {\n    background: none;\n    border: 0;\n    height: 24px;\n  }\n\n  [data-testid*=\"text content\"]>div {\n    overflow-x: hidden;\n  }\n\n  [data-testid=\"data-testid panel\"]>div,\n  .twitch-container {\n    scrollbar-width: none !important;\n  }\n\n  ::-webkit-scrollbar {\n    width: 8px;\n    height: 8px;\n  }\n\n  ::-webkit-scrollbar-track {\n    background: #f1f1f1;\n    border-radius: 10px;\n  }\n\n  ::-webkit-scrollbar-thumb {\n    background: #888;\n    border-radius: 10px;\n    transition: background 0.3s;\n  }\n\n  ::-webkit-scrollbar-thumb:hover {\n    background: #555;\n  }\n\n  ::-webkit-scrollbar-button {\n    display: none;\n  }\n\n  [class*=\"-panel-header\"] {\n    text-shadow: 0 0 5px black !important;\n    padding-right: 20px;\n  }\n\n  [class*=\"-panel-header\"]:after {\n    content: \"\";\n    display: inline-block;\n    height: 4px;\n    background: #5d5d5d33;\n    flex-grow: 1;\n    margin-left: 5px;\n  }\n\n  [data-testid*=\"panel content\"]:has(.hr-text-container) {\n    padding: 0 !important;\n  }\n\n  .hr-text-container {\n    display: flex;\n    align-items: center;\n    width: 100%;\n    height: auto;\n    position: absolute;\n    margin: 0;\n    top: 50%;\n    transform: translateY(-50%);\n  }\n\n  .hr-left {\n    flex-grow: 1;\n    height: 2px;\n    background: linear-gradient(to right, transparent, #00ccff);\n  }\n\n  .text {\n    color: #ddd;\n    padding: 0 10px;\n    font-weight: 500;\n    font-size: 18px;\n  }\n\n  .hr-right {\n    flex-grow: 1;\n    height: 2px;\n    background: linear-gradient(to left, transparent, #00ccff);\n  }\n\n  [data-viz-panel-key=\"panel-6\"] .gf-form>*>[class$=\"horizontal-group\"] {\n    justify-content: center !important;\n  }\n\n  [data-viz-panel-key=\"panel-8\"] [class$=\"panel-content\"],\n  [data-viz-panel-key=\"panel-6\"] [class$=\"panel-content\"] {\n    padding: 0 !important;\n  }\n\n  div#\\:r10\\: {\n    padding: 0 !important;\n    margin: 0 !important;\n  }\n\n  [data-testid*=\"panel content\"] [data-testid*=\"button-view\"] {\n    overflow: visible;\n    height: unset;\n  }\n\n  [data-testid*=\"panel content\"] [data-testid*=\"button-view\"] [type=button] {\n    border-radius: 8px;\n  }\n\n  .gf-form>*:has(> [class$=\"horizontal-group\"]) {\n    height: auto;\n    overflow: visible;\n  }\n\n  .gf-form>*>[class$=\"horizontal-group\"]>*>button {\n    border-radius: 10px;\n    background: rgba(30, 30, 30, 0.5);\n    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);\n  }\n\n  .gf-form>*>[class$=\"horizontal-group\"]>*>button:hover {\n    background: rgba(50, 50, 50, 0.5);\n  }\n</style>",
         "mode": "html"
       },
-      "pluginVersion": "11.6.0",
+      "pluginVersion": "12.1.0",
       "transparent": true,
       "type": "text"
     },
     {
       "datasource": {
-        "type": "influxdb",
-        "uid": "${DS_PROXMOX}"
+        "type": "datasource",
+        "uid": "grafana"
       },
       "fieldConfig": {
         "defaults": {
@@ -1137,7 +1118,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               }
             ]
           }
@@ -1146,9 +1128,9 @@
       },
       "gridPos": {
         "h": 1,
-        "w": 24,
+        "w": 23,
         "x": 0,
-        "y": 5
+        "y": 4
       },
       "id": 14,
       "options": {
@@ -1191,7 +1173,7 @@
         "h": 1,
         "w": 24,
         "x": 0,
-        "y": 6
+        "y": 5
       },
       "id": 8,
       "options": {
@@ -1200,17 +1182,17 @@
           "showLineNumbers": false,
           "showMiniMap": false
         },
-        "content": "<div class=\"stats-container\">\n    <div class=\"legend-item\">\n        <div class=\"color-box total-queries\"></div>\n        <span class=\"legend-text\">Total queries</span>\n    </div>\n    <div class=\"legend-item\">\n        <div class=\"color-box blocked\"></div>\n        <span class=\"legend-text\">Blocked</span>\n    </div>\n</div>\n\n<style>\n\n    .stats-container {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n    }\n    \n    .legend-item {\n        display: flex;\n        align-items: center;\n        margin: 0 20px;\n    }\n    \n    .color-box {\n        width: 30px;\n        height: 15px;\n        margin-right: 8px;\n        border-radius: 5px;\n    }\n\n    .color-box.blocked {\n        border: solid 1px rgb(217,123,32);\n    }\n\n    .color-box.total-queries {\n        border: solid 1px rgb(30,126,90);\n    }\n\n    .total-queries {\n        background-color: rgba(30,126,90,0.5);\n    }\n    \n    .blocked {\n        background-color: rgba(217,123,32,0.5);\n    }\n    \n    .legend-text {\n        font-size: 14px;\n        color: #e0e0e0;\n    }\n</style>",
+        "content": "<div class=\"stats-container\">\n    <div class=\"legend-item\">\n        <div class=\"color-box total-queries\"></div>\n        <span class=\"legend-text\">Total queries</span>\n    </div>\n    <div class=\"legend-item\">\n        <div class=\"color-box blocked\"></div>\n        <span class=\"legend-text\">Blocked</span>\n    </div>\n</div>\n\n<style>\n    \n    .markdown-html:has(.stats-container) {\n        overflow: hidden;\n        }\n\n    .stats-container {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n    }\n    \n    .legend-item {\n        display: flex;\n        align-items: center;\n        margin: 0 20px;\n    }\n    \n    .color-box {\n        width: 30px;\n        height: 15px;\n        margin-right: 8px;\n        border-radius: 5px;\n    }\n\n    .color-box.blocked {\n        border: solid 1px rgb(217,123,32);\n    }\n\n    .color-box.total-queries {\n        border: solid 1px rgb(30,126,90);\n    }\n\n    .total-queries {\n        background-color: rgba(30,126,90,0.5);\n    }\n    \n    .blocked {\n        background-color: rgba(217,123,32,0.5);\n    }\n    \n    .legend-text {\n        font-size: 14px;\n        color: #e0e0e0;\n    }\n</style>",
         "mode": "html"
       },
-      "pluginVersion": "11.6.0",
+      "pluginVersion": "12.1.0",
       "transparent": true,
       "type": "text"
     },
     {
       "datasource": {
-        "type": "datasource",
-        "uid": "-- Mixed --"
+        "type": "yesoreyeram-infinity-datasource",
+        "uid": "${DS_UNBOUND}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1260,7 +1242,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -1318,11 +1301,11 @@
         "h": 10,
         "w": 22,
         "x": 1,
-        "y": 7
+        "y": 6
       },
       "hideTimeOverride": true,
       "id": 3,
-      "interval": "10m",
+      "interval": "1m",
       "options": {
         "legend": {
           "calcs": [],
@@ -1339,14 +1322,14 @@
           "sort": "none"
         }
       },
-      "pluginVersion": "11.6.0",
+      "pluginVersion": "12.1.0",
       "targets": [
         {
           "cacheDurationSeconds": 300,
           "columns": [],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_N8N}"
+            "uid": "${DS_UNBOUND}"
           },
           "fields": [
             {
@@ -1374,11 +1357,99 @@
           "method": "GET",
           "parser": "backend",
           "queryParams": "",
-          "refId": "A",
-          "root_selector": "$keys($) ~> $sort() ~> $map(function($k) {\n  {\n    \"timestamp\": $number($k),\n    \"time\": $fromMillis($number($k) * 1000),\n    \"total\": $lookup($, $k).total,\n    \"passed\": $lookup($, $k).passed,\n    \"blocked\": $lookup($, $k).blocked,\n    \"dropped\": $lookup($, $k).dropped,\n    \"resolved\": $lookup($, $k).resolved,\n    \"local\": $lookup($, $k).local,\n    \"cached\": $lookup($, $k).cached\n  }\n})\n",
+          "refId": "1h",
+          "root_selector": "(${__to:date:seconds} - ${__from:date:seconds}) <= 3600 ? \n  $keys($) ~> $sort() ~> $map(function($k) {\n    {\n      \"timestamp\": $number($k),\n      \"time\": $fromMillis($number($k) * 1000),\n      \"total\": $lookup($, $k).total,\n      \"passed\": $lookup($, $k).passed,\n      \"blocked\": $lookup($, $k).blocked,\n      \"dropped\": $lookup($, $k).dropped,\n      \"resolved\": $lookup($, $k).resolved,\n      \"local\": $lookup($, $k).local,\n      \"cached\": $lookup($, $k).cached\n    }\n  })\n: []",
           "source": "url",
           "type": "json",
-          "url": "https://your_api_endpoint.net/webhook/unbound/rolling?clients=0",
+          "url": "/Rolling/1/0",
+          "urlPath": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        },
+        {
+          "cacheDurationSeconds": 300,
+          "columns": [],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_UNBOUND}"
+          },
+          "fields": [
+            {
+              "jsonPath": "$keys($)",
+              "language": "jsonata",
+              "name": "time"
+            },
+            {
+              "jsonPath": "$.[*].passed",
+              "language": "jsonpath",
+              "name": "",
+              "type": "number"
+            },
+            {
+              "jsonPath": "$.[*].blocked",
+              "language": "jsonpath",
+              "name": "",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "hide": false,
+          "method": "GET",
+          "parser": "backend",
+          "queryParams": "",
+          "refId": "12h",
+          "root_selector": "(${__to:date:seconds} - ${__from:date:seconds}) > 3600 and (${__to:date:seconds} - ${__from:date:seconds}) <= 43200 ? \n  $keys($) ~> $sort() ~> $map(function($k) {\n    {\n      \"timestamp\": $number($k),\n      \"time\": $fromMillis($number($k) * 1000),\n      \"total\": $lookup($, $k).total,\n      \"passed\": $lookup($, $k).passed,\n      \"blocked\": $lookup($, $k).blocked,\n      \"dropped\": $lookup($, $k).dropped,\n      \"resolved\": $lookup($, $k).resolved,\n      \"local\": $lookup($, $k).local,\n      \"cached\": $lookup($, $k).cached\n    }\n  })\n: []",
+          "source": "url",
+          "type": "json",
+          "url": "/Rolling/12/0",
+          "urlPath": "",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        },
+        {
+          "cacheDurationSeconds": 300,
+          "columns": [],
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_UNBOUND}"
+          },
+          "fields": [
+            {
+              "jsonPath": "$keys($)",
+              "language": "jsonata",
+              "name": "time"
+            },
+            {
+              "jsonPath": "$.[*].passed",
+              "language": "jsonpath",
+              "name": "",
+              "type": "number"
+            },
+            {
+              "jsonPath": "$.[*].blocked",
+              "language": "jsonpath",
+              "name": "",
+              "type": "number"
+            }
+          ],
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "hide": false,
+          "method": "GET",
+          "parser": "backend",
+          "queryParams": "",
+          "refId": "24h",
+          "root_selector": "(${__to:date:seconds} - ${__from:date:seconds}) > 43200 ?\n  $keys($) ~> $sort() ~> $map(function($k) {\n    {\n      \"timestamp\": $number($k),\n      \"time\": $fromMillis($number($k) * 1000),\n      \"total\": $lookup($, $k).total,\n      \"passed\": $lookup($, $k).passed,\n      \"blocked\": $lookup($, $k).blocked,\n      \"dropped\": $lookup($, $k).dropped,\n      \"resolved\": $lookup($, $k).resolved,\n      \"local\": $lookup($, $k).local,\n      \"cached\": $lookup($, $k).cached\n    }\n  })\n: []",
+          "source": "url",
+          "type": "json",
+          "url": "/Rolling/24/0",
           "urlPath": "",
           "url_options": {
             "data": "",
@@ -1387,7 +1458,6 @@
         }
       ],
       "timeFrom": "$range",
-      "timeShift": "5m",
       "title": "Overall Queries",
       "transformations": [
         {
@@ -1479,10 +1549,10 @@
     },
     {
       "gridPos": {
-        "h": 2,
+        "h": 1,
         "w": 24,
         "x": 0,
-        "y": 17
+        "y": 16
       },
       "id": 12,
       "options": {
@@ -1494,14 +1564,14 @@
         "content": "<div class=\"hr-text-container\">\n  <div class=\"hr-left\"></div>\n  <div class=\"text\">Client Activities</div>\n  <div class=\"hr-right\"></div>\n</div>",
         "mode": "html"
       },
-      "pluginVersion": "11.6.0",
+      "pluginVersion": "12.1.0",
       "transparent": true,
       "type": "text"
     },
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_N8N}"
+        "uid": "${DS_UNBOUND}"
       },
       "description": "",
       "fieldConfig": {
@@ -1555,7 +1625,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -1583,11 +1654,11 @@
         "h": 9,
         "w": 22,
         "x": 1,
-        "y": 19
+        "y": 17
       },
       "hideTimeOverride": true,
       "id": 11,
-      "interval": "10m",
+      "interval": "1m",
       "options": {
         "legend": {
           "calcs": [],
@@ -1600,47 +1671,80 @@
         ],
         "tooltip": {
           "hideZeros": false,
-          "mode": "single",
-          "sort": "none"
+          "mode": "multi",
+          "sort": "desc"
         }
       },
-      "pluginVersion": "11.6.0",
+      "pluginVersion": "12.1.0",
       "targets": [
         {
-          "alias": "Random Walk",
           "columns": [],
           "computed_columns": [],
           "data": "",
-          "dataOverrides": [],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_N8N}"
+            "uid": "${DS_UNBOUND}"
           },
-          "filterExpression": "",
           "filters": [],
-          "format": "dataframe",
+          "format": "table",
           "global_query_id": "",
-          "json_options": {
-            "columnar": false,
-            "root_is_not_array": true
-          },
+          "hide": false,
           "parser": "backend",
-          "refId": "A",
-          "root_selector": "",
+          "refId": "1h",
+          "root_selector": "(${__to:date:seconds} - ${__from:date:seconds}) <= 3600 ? \n  $reduce([\n    $each($[0], function($hosts, $timestamp) {\n      $type($hosts) = \"object\" and $count($keys($hosts)) > 0 ? \n        $each($hosts, function($hostData, $ip) {\n          {\n            \"time\": $number($timestamp),\n            \"identifier\": $hostData.hostname != \"\" ? $hostData.hostname : $ip,\n            \"count\": $hostData.count\n          }\n        })\n      : []\n    })\n  ], $append)\n: []\n",
           "source": "url",
           "type": "json",
-          "uql": "parse-json | jsonata \"\r\n  $map($keys($), function($timestamp) {\r\n    $map($lookup($, $timestamp).*, function($host, $ip) {\r\n      {\r\n        \\\"timestamp\\\": $timestamp,\r\n        \\\"count\\\": $host.count,\r\n        \\\"hostname\\\": $host.hostname\r\n      }\r\n    })\r\n  })\r\n\"\r\n",
-          "url": "https://your_api_endpoint.net/webhook/unbound/rolling?clients=1&timeRange=$range",
+          "uql": "$reduce(\r\n  $map(\r\n    $each($[0]), \r\n    function($v, $k) {\r\n      $map($each($v), function($h, $ip) {\r\n        {\r\n          \"time\": $number($k),\r\n          \"identifier\": $h.hostname,\r\n          \"count\": $h.count\r\n        }\r\n      })\r\n    }\r\n  ), $append\r\n)\r\n",
+          "url": "/Rolling/1/1",
           "url_options": {
             "data": "",
-            "headers": [
-              {
-                "key": "Grafana",
-                "value": "49HVvb8B2rnRx8R4eDsP"
-              }
-            ],
-            "method": "GET",
-            "params": []
+            "method": "GET"
+          }
+        },
+        {
+          "columns": [],
+          "data": "",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_UNBOUND}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "hide": false,
+          "parser": "backend",
+          "refId": "12h",
+          "root_selector": "(${__to:date:seconds} - ${__from:date:seconds}) > 3600 and (${__to:date:seconds} - ${__from:date:seconds}) <= 43200 ? \n  $reduce([\n    $each($[0], function($hosts, $timestamp) {\n      $type($hosts) = \"object\" and $count($keys($hosts)) > 0 ? \n        $each($hosts, function($hostData, $ip) {\n          {\n            \"time\": $number($timestamp),\n            \"identifier\": $hostData.hostname != \"\" ? $hostData.hostname : $ip,\n            \"count\": $hostData.count\n          }\n        })\n      : []\n    })\n  ], $append)\n: []\n",
+          "source": "url",
+          "type": "json",
+          "uql": "$reduce(\r\n  $map(\r\n    $each($[0]), \r\n    function($v, $k) {\r\n      $map($each($v), function($h, $ip) {\r\n        {\r\n          \"time\": $number($k),\r\n          \"identifier\": $h.hostname,\r\n          \"count\": $h.count\r\n        }\r\n      })\r\n    }\r\n  ), $append\r\n)\r\n",
+          "url": "/Rolling/12/1",
+          "url_options": {
+            "data": "",
+            "method": "GET"
+          }
+        },
+        {
+          "columns": [],
+          "data": "",
+          "datasource": {
+            "type": "yesoreyeram-infinity-datasource",
+            "uid": "${DS_UNBOUND}"
+          },
+          "filters": [],
+          "format": "table",
+          "global_query_id": "",
+          "hide": false,
+          "parser": "backend",
+          "refId": "24h",
+          "root_selector": "(${__to:date:seconds} - ${__from:date:seconds}) > 43200 ? \n  $reduce([\n    $each($[0], function($hosts, $timestamp) {\n      $type($hosts) = \"object\" and $count($keys($hosts)) > 0 ? \n        $each($hosts, function($hostData, $ip) {\n          {\n            \"time\": $number($timestamp),\n            \"identifier\": $hostData.hostname != \"\" ? $hostData.hostname : $ip,\n            \"count\": $hostData.count\n          }\n        })\n      : []\n    })\n  ], $append)\n: []\n",
+          "source": "url",
+          "type": "json",
+          "uql": "$reduce(\r\n  $map(\r\n    $each($[0]), \r\n    function($v, $k) {\r\n      $map($each($v), function($h, $ip) {\r\n        {\r\n          \"time\": $number($k),\r\n          \"identifier\": $h.hostname,\r\n          \"count\": $h.count\r\n        }\r\n      })\r\n    }\r\n  ), $append\r\n)\r\n",
+          "url": "/Rolling/24/1",
+          "url_options": {
+            "data": "",
+            "method": "GET"
           }
         }
       ],
@@ -1695,7 +1799,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_N8N}"
+        "uid": "${DS_UNBOUND}"
       },
       "fieldConfig": {
         "defaults": {
@@ -1716,7 +1820,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -1895,7 +2000,7 @@
         "h": 17,
         "w": 22,
         "x": 1,
-        "y": 28
+        "y": 26
       },
       "hideTimeOverride": true,
       "id": 5,
@@ -1914,23 +2019,23 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "11.6.0",
+      "pluginVersion": "12.1.0",
       "targets": [
         {
           "columns": [],
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_N8N}"
+            "uid": "${DS_UNBOUND}"
           },
           "filters": [],
           "format": "table",
           "global_query_id": "",
           "parser": "backend",
           "refId": "A",
-          "root_selector": "",
+          "root_selector": "$[0].rows\n",
           "source": "url",
           "type": "json",
-          "url": "https://your_api_endpoint.net/webhook/unbound/searchQueries",
+          "url": "/searchQueries",
           "url_options": {
             "data": "",
             "method": "GET"
@@ -2009,7 +2114,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_N8N}"
+        "uid": "${DS_UNBOUND}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2028,7 +2133,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -2121,15 +2227,15 @@
         ]
       },
       "gridPos": {
-        "h": 11,
-        "w": 10,
+        "h": 14,
+        "w": 11,
         "x": 1,
-        "y": 45
+        "y": 43
       },
       "id": 9,
       "interval": "10m",
       "options": {
-        "cellHeight": "sm",
+        "cellHeight": "md",
         "footer": {
           "countRows": false,
           "enablePagination": false,
@@ -2143,24 +2249,24 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "11.6.0",
+      "pluginVersion": "12.1.0",
       "targets": [
         {
           "columns": [],
           "data": "",
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_N8N}"
+            "uid": "${DS_UNBOUND}"
           },
           "filters": [],
           "format": "table",
           "global_query_id": "",
           "parser": "backend",
           "refId": "A",
-          "root_selector": "",
+          "root_selector": "$append(\n  $exists($.top) ? \n    $each($.top, function($stats, $domain) {\n      {\n        \"type\": \"passed\",\n        \"domain\": $domain,\n        \"total\": $stats.total,\n        \"percentage\": $stats.pcnt,\n        \"stats\": $stats.total & \" (\" & $stats.pcnt & \"%)\",\n        \"blocklist\": \"\"\n      }\n    }) : [],\n  $exists($.top_blocked) ? \n    $each($.top_blocked, function($stats, $domain) {\n      {\n        \"type\": \"blocked\",\n        \"domain\": $domain,\n        \"total\": $stats.total,\n        \"percentage\": $stats.pcnt,\n        \"stats\": $stats.total & \" (\" & $stats.pcnt & \"%)\",\n        \"blocklist\": $stats.blocklist\n      }\n    }) : []\n)\n",
           "source": "url",
           "type": "json",
-          "url": "https://your_api_endpoint.net/webhook/unbound/totals?top=10",
+          "url": "/totals/10",
           "url_options": {
             "data": "",
             "method": "GET"
@@ -2278,7 +2384,7 @@
     {
       "datasource": {
         "type": "yesoreyeram-infinity-datasource",
-        "uid": "${DS_N8N}"
+        "uid": "${DS_UNBOUND}"
       },
       "fieldConfig": {
         "defaults": {
@@ -2297,7 +2403,8 @@
             "mode": "absolute",
             "steps": [
               {
-                "color": "green"
+                "color": "green",
+                "value": 0
               },
               {
                 "color": "red",
@@ -2414,15 +2521,15 @@
         ]
       },
       "gridPos": {
-        "h": 11,
-        "w": 10,
-        "x": 13,
-        "y": 45
+        "h": 14,
+        "w": 11,
+        "x": 12,
+        "y": 43
       },
       "id": 15,
       "interval": "10m",
       "options": {
-        "cellHeight": "sm",
+        "cellHeight": "md",
         "footer": {
           "countRows": false,
           "enablePagination": false,
@@ -2436,24 +2543,24 @@
         "showHeader": true,
         "sortBy": []
       },
-      "pluginVersion": "11.6.0",
+      "pluginVersion": "12.1.0",
       "targets": [
         {
           "columns": [],
           "data": "",
           "datasource": {
             "type": "yesoreyeram-infinity-datasource",
-            "uid": "${DS_N8N}"
+            "uid": "${DS_UNBOUND}"
           },
           "filters": [],
           "format": "table",
           "global_query_id": "",
           "parser": "backend",
           "refId": "A",
-          "root_selector": "",
+          "root_selector": "$append(\n  $exists($.top) ? \n    $each($.top, function($stats, $domain) {\n      {\n        \"type\": \"passed\",\n        \"domain\": $domain,\n        \"total\": $stats.total,\n        \"percentage\": $stats.pcnt,\n        \"stats\": $stats.total & \" (\" & $stats.pcnt & \"%)\",\n        \"blocklist\": \"\"\n      }\n    }) : [],\n  $exists($.top_blocked) ? \n    $each($.top_blocked, function($stats, $domain) {\n      {\n        \"type\": \"blocked\",\n        \"domain\": $domain,\n        \"total\": $stats.total,\n        \"percentage\": $stats.pcnt,\n        \"stats\": $stats.total & \" (\" & $stats.pcnt & \"%)\",\n        \"blocklist\": $stats.blocklist\n      }\n    }) : []\n)\n",
           "source": "url",
           "type": "json",
-          "url": "https://your_api_endpoint.net/webhook/unbound/totals?top=10",
+          "url": "/totals/10",
           "url_options": {
             "data": "",
             "method": "GET"
@@ -2578,15 +2685,15 @@
       {
         "allowCustomValue": false,
         "current": {
-          "text": "24h",
-          "value": "24h"
+          "text": "1h",
+          "value": "1h"
         },
         "hide": 2,
         "label": "Time Range",
         "name": "range",
         "options": [
           {
-            "selected": false,
+            "selected": true,
             "text": "1 Hour",
             "value": "1h"
           },
@@ -2596,7 +2703,7 @@
             "value": "12h"
           },
           {
-            "selected": true,
+            "selected": false,
             "text": "24 Hours",
             "value": "24h"
           }
@@ -2607,15 +2714,13 @@
     ]
   },
   "time": {
-    "from": "now-24h",
+    "from": "now-1h",
     "to": "now"
   },
-  "timepicker": {
-    "hidden": true
-  },
+  "timepicker": {},
   "timezone": "browser",
   "title": "Unbound DNS",
-  "uid": "bdn6ozjq9z0u8a",
-  "version": 213,
+  "uid": "bdn6ozjq9z0u8au",
+  "version": 15,
   "weekStart": ""
 }
