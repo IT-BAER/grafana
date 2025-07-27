@@ -69,8 +69,9 @@ git clone https://github.com/IT-BAER/grafana.git
 ```
 
 2. In Grafana, navigate to **Dashboards** → **+ Import**
-3. Click on **Upload JSON file** and select the `dashboard.json` file from this directory
-4. Before finalizing the import, ensure the dashboard is using your working data sources
+3. Click on **Upload JSON file** and select the `dashboard.json` file from this Directory
+4. Before finalizing the Import, ensure the Dashboard is using your working Data Sources
+5. Copy the glancy-wp.png into your Grafana img Folder (usually ```/usr/share/grafana/public/img```)
 
 <br>
 
