@@ -13,6 +13,14 @@ Each Dashboard is organized in its own directory with all necessary Assets and D
 
 ## 📊 Dashboards
 
+### [Glancy](dashboards/glancy/)
+Dashboard for aggregating content from multiple sources including Reddit, Twitch, YouTube, and GitHub.
+**For detailed installation and configuration Instructions, please see the [dashboard-specific README](dashboards/glancy/README.md).**
+
+![Dashboard-Glancy](screenshots/glancy-dashboard.jpeg)
+
+<br>
+
 ### [Unbound DNS](dashboards/unbound-dns/)
 Dashboard for Monitoring Unbound DNS via OPNsense API, including all necessary Assets. 
 **For detailed installation and configuration Instructions, please see the [dashboard-specific README](dashboards/unbound-dns/README.md).**
@@ -41,9 +49,9 @@ git clone https://github.com/IT-BAER/grafana.git
 3. In Grafana, navigate to **Dashboards** → **+ Import**
 4. Click on **Upload JSON file** and select the `dashboard.json` file from the dashboard's directory
 5. Before finalizing the import, ensure the dashboard is using your working data sources
-6. Copy any assets from the dashboard's `assets` folder to your Grafana's public assets directory (if required by the specific dashboard)
+6. (OPTIONAL) Copy any Assets from the Dashboard's `assets` folder to your Grafana's public assets directory (Usually ```/usr/share/grafana/public/img/bg```)
 
-Note: The path may vary depending on your Grafana installation. Refer to individual dashboard documentation for specific asset requirements.
+> **ℹ️ Note:** The path may vary depending on your Grafana installation. Refer to individual dashboard documentation for specific asset requirements.
 
 <br>
 
