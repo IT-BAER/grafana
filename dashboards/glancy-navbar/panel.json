@@ -1,0 +1,66 @@
+{
+  "id": 1,
+  "type": "marcusolsson-dynamictext-panel",
+  "title": "",
+  "description": "",
+  "gridPos": {
+    "x": 3,
+    "y": 0,
+    "h": 1,
+    "w": 18
+  },
+  "fieldConfig": {
+    "defaults": {
+      "thresholds": {
+        "mode": "absolute",
+        "steps": [
+          {
+            "color": "green",
+            "value": null
+          },
+          {
+            "color": "red",
+            "value": 80
+          }
+        ]
+      }
+    },
+    "overrides": []
+  },
+  "transparent": true,
+  "pluginVersion": "5.7.0",
+  "targets": [
+    {
+      "datasource": {
+        "type": "datasource",
+        "uid": "grafana"
+      },
+      "queryType": "randomWalk",
+      "refId": "A"
+    }
+  ],
+  "maxDataPoints": 1,
+  "datasource": {
+    "type": "datasource",
+    "uid": "grafana"
+  },
+  "options": {
+    "renderMode": "everyRow",
+    "editors": [
+      "styles",
+      "afterRender"
+    ],
+    "editor": {
+      "language": "html",
+      "format": "auto"
+    },
+    "wrap": true,
+    "contentPartials": [],
+    "content": "<nav class=\"custom-nav\">\n  <div class=\"nav-logo\">\n    <a href=\"https://github.com/IT-BAER/grafana\" title=\"Github\" target=\"_blank\" rel=\"noopener noreferrer\">\n      <img src=\"https://raw.githubusercontent.com/IT-BAER/grafana/refs/heads/main/dashboards/glancy-navbar/assets/baer-100x100.png\" height=\"34px\">\n      <span>Glancy</span>\n    </a>\n  </div>\n\n  <ul class=\"nav-links\">\n  </ul>\n\n  <div class=\"nav-indicator\"></div>\n</nav>\n\n<style>\n  /* Dashboard Styles */\n\n  [data-testid=\"data-testid Panel header \"] [data-testid=\"data-testid panel\"],\n  [data-testid=\"data-testid Panel header \"] [data-testid=\"data-testid text content\"] {\n    padding: 0;\n  }\n\n  /* Create fixed background layer */\n  [class*=\"-page-wrapper\"]:before {\n    content: '';\n    position: fixed;\n    top: 0;\n    left: 0;\n    right: 0;\n    bottom: 0;\n    background-image: url(https://raw.githubusercontent.com/IT-BAER/grafana/refs/heads/main/dashboards/glancy-dashboard/assets/glancy-wp.png);\n    background-size: cover;\n    background-repeat: no-repeat;\n    background-position: center;\n    z-index: -10;\n    transform: translateZ(0);\n    will-change: transform;\n  }\n\n  /* Default sticky positioning */\n  .react-grid-item:has(.custom-nav) {\n    position: sticky !important;\n    top: 80px;\n    z-index: 1000;\n    padding: 0;\n    border-bottom-left-radius: 15px;\n    border-bottom-right-radius: 15px;\n    height: 45px !important;\n    margin-top: -40px;\n  }\n\n  .custom-nav,\n  .react-grid-item:has(.custom-nav),\n  [data-testid*=\"panel content\"] {\n    transform: translateZ(0);\n    will-change: transform;\n  }\n\n  [data-testid*=\"Panel header\"]:has(.custom-nav) {\n    border: none !important;\n  }\n\n  [data-testid=\"data-testid panel\"]:has(.custom-nav) {\n    backdrop-filter: blur(8px);\n    will-change: backdrop-filter;\n    contain: layout style paint;\n    border-bottom-left-radius: 15px;\n    border-bottom-right-radius: 15px;\n  }\n\n  /* Kiosk mode overrides */\n  body:not(:has(header)) .react-grid-item:has(.custom-nav) {\n    top: 0 !important;\n  }\n\n  [class*=\"-hover-container-widget\"] {\n    box-shadow: none;\n  }\n\n  [class*=\"-canvas-wrapper-old\"]>div>div {\n    padding: 0;\n  }\n\n  [data-testid*=\"dashboard controls\"] {\n    position: absolute;\n    width: fit-content;\n    right: 0;\n  }\n\n  [data-testid*=\"RefreshPicker run button\"] div {\n    display: none;\n  }\n\n  [data-testid*=\"RefreshPicker run button\"] {\n    width: auto !important;\n    border-bottom-left-radius: 50%;\n  }\n\n  .button-group:has([data-testid*=\"TimePicker Open Button\"]) {\n    display: none;\n  }\n\n  [class^=\"css\"]:has([data-testid=\"data-testid dashboard controls\"]) {\n    background-color: transparent;\n  }\n\n  .scene-resize-handle:not(:hover) {\n    opacity: 0;\n  }\n\n  .show-on-hover {\n    background: none;\n    border: 0;\n    height: 24px;\n  }\n\n  [class^=\"css\"]:has([data-testid=\"data-testid dashboard controls\"]) {\n    background-color: transparent;\n  }\n</style>",
+    "defaultContent": "The query didn't return any results.",
+    "helpers": "",
+    "afterRender": "// Function to fetch dashboards with the \"glancy\" tag\r\nasync function fetchGlancyDashboards() {\r\n  try {\r\n    const response = await fetch('/api/search?tag=glancy');\r\n    if (!response.ok) {\r\n      throw new Error('Failed to fetch dashboards');\r\n    }\r\n    const dashboards = await response.json();\r\n    return dashboards;\r\n  } catch (error) {\r\n    console.error('Error fetching glancy dashboards:', error);\r\n    return [];\r\n  }\r\n}\r\n\r\nfunction updateStickyNavPosition() {\r\n  const headerHeight = calculateHeaderHeight();\r\n  const navElement = document.querySelector('.react-grid-item:has(.custom-nav)');\r\n\r\n  if (navElement) {\r\n    navElement.style.top = `${headerHeight}px`;\r\n    console.log('Header height calculated:', headerHeight + 'px');\r\n  }\r\n}\r\n\r\n// Function to set active navigation item (moved to global scope)\r\nfunction setActiveItem() {\r\n  const currentPath = window.location.pathname;\r\n  const navItems = document.querySelectorAll('.nav-item a');\r\n  let activeItem = null;\r\n\r\n  navItems.forEach(item => {\r\n    item.classList.remove('active');\r\n    const itemPath = item.getAttribute('href');\r\n\r\n    if (currentPath.includes(itemPath)) {\r\n      item.classList.add('active');\r\n      activeItem = item;\r\n    }\r\n  });\r\n\r\n  if (!activeItem && navItems.length > 0) {\r\n    navItems[0].classList.add('active');\r\n  }\r\n\r\n  // Don't position the indicator for active items by default\r\n  // The indicator will only show on hover\r\n}\r\n\r\n// Function to add dashboard links to navigation\r\nfunction addGlancyDashboardLinks() {\r\n  const navLinks = document.querySelector('.nav-links');\r\n\r\n  fetchGlancyDashboards().then(dashboards => {\r\n    dashboards.sort((a, b) => a.title.localeCompare(b.title));\r\n\r\n    dashboards.forEach(dashboard => {\r\n      const existingLink = document.querySelector(`.nav-item a[href=\"/d/${dashboard.uid}/${dashboard.slug}\"]`);\r\n      if (existingLink) return;\r\n\r\n      const li = document.createElement('li');\r\n      li.className = 'nav-item';\r\n\r\n      const a = document.createElement('a');\r\n      a.href = `/d/${dashboard.uid}/${dashboard.slug}`;\r\n      a.setAttribute('data-dashboard', dashboard.slug);\r\n      a.textContent = dashboard.title;\r\n\r\n      a.addEventListener('click', (e) => {\r\n        document.querySelectorAll('.nav-item a').forEach(i => i.classList.remove('active'));\r\n        e.currentTarget.classList.add('active');\r\n      });\r\n\r\n      a.addEventListener('mouseenter', (e) => {\r\n        const rect = e.currentTarget.getBoundingClientRect();\r\n        const navRect = document.querySelector('.custom-nav').getBoundingClientRect();\r\n        const indicator = document.querySelector('.nav-indicator');\r\n        if (indicator) {\r\n          indicator.style.opacity = '1';\r\n          indicator.style.width = `${rect.width}px`;\r\n          indicator.style.left = `${rect.left - navRect.left}px`;\r\n        }\r\n      });\r\n\r\n      a.addEventListener('mouseleave', (e) => {\r\n        const indicator = document.querySelector('.nav-indicator');\r\n        if (indicator) {\r\n          indicator.style.opacity = '0';\r\n        }\r\n      });\r\n\r\n      li.appendChild(a);\r\n      navLinks.appendChild(li);\r\n    });\r\n\r\n    // Set active item after adding all links - now accessible\r\n    setActiveItem();\r\n  });\r\n}\r\n\r\n// Function to set up the navigation\r\nfunction setupNavigation() {\r\n  const indicator = document.querySelector('.nav-indicator');\r\n\r\n  // Positions the navigation indicator under the specified element\r\n  function positionIndicator(element) {\r\n    if (!element || !indicator) return;\r\n\r\n    const rect = element.getBoundingClientRect();\r\n    const navRect = document.querySelector('.custom-nav').getBoundingClientRect();\r\n\r\n    indicator.style.width = `${rect.width}px`;\r\n    indicator.style.left = `${rect.left - navRect.left}px`;\r\n  }\r\n\r\n  // Set up event listeners for all nav items\r\n  function setupNavItems() {\r\n    const navItems = document.querySelectorAll('.nav-item a');\r\n\r\n    navItems.forEach(item => {\r\n      item.addEventListener('click', (e) => {\r\n        navItems.forEach(i => i.classList.remove('active'));\r\n        e.currentTarget.classList.add('active');\r\n      });\r\n\r\n      item.addEventListener('mouseenter', (e) => {\r\n        const rect = e.currentTarget.getBoundingClientRect();\r\n        const navRect = document.querySelector('.custom-nav').getBoundingClientRect();\r\n        if (indicator) {\r\n          indicator.style.opacity = '1';\r\n          indicator.style.width = `${rect.width}px`;\r\n          indicator.style.left = `${rect.left - navRect.left}px`;\r\n        }\r\n      });\r\n\r\n      item.addEventListener('mouseleave', (e) => {\r\n        if (indicator) {\r\n          indicator.style.opacity = '0';\r\n        }\r\n      });\r\n    });\r\n  }\r\n\r\n  // Add glancy dashboard links\r\n  addGlancyDashboardLinks();\r\n\r\n  // Set up event listeners for initial nav items\r\n  setupNavItems();\r\n\r\n  // Set active item\r\n  setActiveItem();\r\n\r\n  // Update on window resize\r\n  window.addEventListener('resize', () => {\r\n    const hoveredItem = document.querySelector('.nav-item a:hover');\r\n    if (hoveredItem) {\r\n      positionIndicator(hoveredItem);\r\n    }\r\n  });\r\n}\r\n\r\n// Initialize everything when DOM is loaded\r\ndocument.addEventListener('DOMContentLoaded', () => {\r\n  setupNavigation();\r\n});\r\n\r\n// If DOM is already loaded, run initialization immediately\r\nif (document.readyState === 'interactive' || document.readyState === 'complete') {\r\n  setupNavigation();\r\n}\r\n",
+    "externalStyles": [],
+    "styles": "/* Navigation container with transparent gradient background */\r\n.custom-nav {\r\n  width: 100%;\r\n  background: linear-gradient(to bottom, \r\n              rgba(0, 0, 0, 0.3) 25%, \r\n              rgba(0, 0, 0, 0.6) 100%);\r\n  display: flex;\r\n  align-items: center;\r\n  padding: 0 15px 0 15px;\r\n  font-family: 'Roboto', 'Helvetica Neue', Arial, sans-serif;\r\n  border-bottom: 1px solid rgba(255, 255, 255, 0.08);\r\n  z-index: 1000;\r\n  border-bottom-left-radius: 15px;\r\n  border-bottom-right-radius: 15px;\r\n  height: 40px;\r\n}\r\n\r\n/* Logo styling */\r\n.nav-logo {\r\n  display: flex;\r\n  align-items: center;\r\n  margin-right: 30px;\r\n}\r\n  \r\n.nav-logo span {\r\n  color: rgb(214, 214, 214);\r\n  margin-left: 10px;\r\n  font-weight: 500;\r\n  font-size: 16px;\r\n  letter-spacing: 0.3px;\r\n}\r\n\r\n.nav-logo img {\r\n  transition: transform 0.4s ease;\r\n}\r\n\r\n.nav-logo:hover img {\r\n  transform: scale(1.05);\r\n}\r\n\r\n/* Navigation links container */\r\n.nav-links {\r\n  display: flex;\r\n  list-style-type: none;\r\n  margin: 0;\r\n  padding: 0;\r\n}\r\n\r\n/* Individual navigation items */\r\n.nav-item {\r\n  position: relative;\r\n  margin-right: 6px;\r\n}\r\n\r\n.nav-item a {\r\n  color: rgba(255, 255, 255, 0.7);\r\n  text-decoration: none;\r\n  padding: 8px 16px;\r\n  margin-top: 2px;\r\n  font-size: 14px;\r\n  display: block;\r\n  transition: all 0.3s ease;\r\n  border-radius: 6px;\r\n  position: relative;\r\n  z-index: 1;\r\n  overflow: hidden;\r\n}\r\n\r\n/* Subtle hover effect - soft gradient */\r\n.nav-item a:before {\r\n  content: '';\r\n  position: absolute;\r\n  bottom: 0;\r\n  left: 0;\r\n  width: 100%;\r\n  height: 0;\r\n  background: linear-gradient(to top, \r\n              rgba(50, 116, 217, 0.08) 0%, \r\n              rgba(50, 116, 217, 0.01) 100%);\r\n  transition: height 0.3s ease;\r\n  z-index: -1;\r\n  border-radius: 6px;\r\n}\r\n\r\n.nav-item a:hover {\r\n  color: rgba(255, 255, 255, 0.95);\r\n  transform: translateY(-1px);\r\n}\r\n\r\n.nav-item a:hover:before {\r\n  height: 100%;\r\n}\r\n\r\n/* Very subtle text effect on hover */\r\n.nav-item a:hover {\r\n  text-shadow: 0 0 1px rgba(255, 255, 255, 0.2);\r\n}\r\n\r\n/* Active navigation item */\r\n.nav-item a.active {\r\n  color: #ffffff;\r\n  font-weight: 500;\r\n  background-color: rgba(50, 116, 217, 0.15);\r\n}\r\n\r\n/* Animated indicator for active item */\r\n.nav-indicator {\r\n  position: absolute;\r\n  bottom: 0;\r\n  height: 2px;\r\n  background: linear-gradient(90deg, rgba(50, 116, 217, 0.8), rgba(82, 148, 255, 0.8));\r\n  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);\r\n  border-radius: 2px;\r\n  box-shadow: 0 0 4px rgba(50, 116, 217, 0.3);\r\n  opacity: 0;\r\n}\r\n\r\n/* Subtle indicator animation on hover */\r\n.nav-item a:hover + .nav-indicator,\r\n.nav-indicator:hover {\r\n  box-shadow: 0 0 6px rgba(50, 116, 217, 0.4);\r\n}\r\n\r\n/* Responsive adjustments */\r\n@media (max-width: 768px) {\r\n  .nav-item a {\r\n    padding: 8px 12px;\r\n    font-size: 13px;\r\n  }\r\n}\r\n"
+  }
+}

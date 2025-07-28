@@ -21,6 +21,14 @@ A Fancy Dashboard at a Glance for aggregating content from multiple sources incl
 
 <br>
 
+### [Glancy-Navbar](dashboards/glancy/)
+A sticky Navigation Menu which was created as part of [Glancy](dashboards/glancy/) for easily switching between Dashboards.
+**For detailed installation and configuration Instructions, please see the [dashboard-specific README](dashboards/glancy-navbar/README.md).**
+
+![Glancy-Navbar](screenshots/glancy-navbar-demo.gif)
+
+<br>
+
 ### [Unbound DNS](dashboards/unbound-dns/)
 Dashboard for Monitoring Unbound DNS via OPNsense API, including all necessary Assets. 
 **For detailed installation and configuration Instructions, please see the [dashboard-specific README](dashboards/unbound-dns/README.md).**
