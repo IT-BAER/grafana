@@ -13,7 +13,7 @@ Each Dashboard is organized in its own directory with all necessary Assets and D
 
 ## 📊 Dashboards
 
-### [Glancy](dashboards/glancy/)
+### [Glancy](dashboards/glancy-navbar/)
 A Fancy Dashboard at a Glance for aggregating content from multiple sources including Reddit, Twitch, YouTube, and GitHub.
 **For detailed installation and configuration Instructions, please see the [dashboard-specific README](dashboards/glancy/README.md).**
 
