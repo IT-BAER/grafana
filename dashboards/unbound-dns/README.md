@@ -30,6 +30,12 @@ This Dashboard provides an Alternative to the OPNsense Unbound DNS Monitoring wi
 - OPNsense API Key configured in Infinity Datasource
 
 ### OPNsense Instruction
+Enable Unbound Statistics:
+1. Go to your OPNsense Web UI
+2. Navigate to **Reporting > Settings**
+3. Enable **Statistics** under **Unbound DNS reporting**
+
+Create User & API:
 1. Go to your OPNsense Web UI
 2. Navigate to **System > Access > Users**
 3. Create a **new User** with any Name and PW
